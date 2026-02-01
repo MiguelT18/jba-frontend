@@ -17,7 +17,9 @@ export default defineConfig({
 
   integrations: [icon({
     include: {
-      pixel: ["code-block-solid"]
+      pixel: ["code-block-solid"],
+      ep: ["arrow-up-bold"],
+      "material-symbols": ["menu-rounded"]
     }
   })]
 });

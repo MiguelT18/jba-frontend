@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@iconify-json/ep':
+        specifier: ^1.2.4
+        version: 1.2.4
+      '@iconify-json/material-symbols':
+        specifier: ^1.2.53
+        version: 1.2.53
       '@iconify-json/pixel':
         specifier: ^1.2.1
         version: 1.2.1
@@ -231,6 +237,12 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@iconify-json/ep@1.2.4':
+    resolution: {integrity: sha512-dtKOueYp1CRxAUW+GayIiuHqOlELfO0W3QiHOH4NjvKtBn2uxZbByIKQ+7B1Hj+AgZrhWTie3QKYkZn+VQVZrw==}
+
+  '@iconify-json/material-symbols@1.2.53':
+    resolution: {integrity: sha512-2jXBKFdNzL9zy6chnJqubykL9WZno7rEP6/isSzpp6fKJJMXXhRtVkaGw1Clle0RlXGWzVkd/eiYUH8f9/ILrQ==}
 
   '@iconify-json/pixel@1.2.1':
     resolution: {integrity: sha512-XwzURAMyZ/BJKeygh4PloKo9cUvS8GfcePueApzwrePvmwCwYT8SC581AQLxJHJl2FZjGWmUMVQ2FN3b9/cYyw==}
@@ -2090,6 +2102,14 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.12':
     optional: true
+
+  '@iconify-json/ep@1.2.4':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/material-symbols@1.2.53':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/pixel@1.2.1':
     dependencies:

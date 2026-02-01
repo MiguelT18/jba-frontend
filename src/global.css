@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 :root {
+  /* Paleta de colores */
+  --color-primary: #f5405e;
+
   /* Tamaños de texto: clamp(min, preferred, max) */
   --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8rem); /* 12px */
   --text-sm: clamp(0.875rem, 0.85rem + 0.2vw, 0.9rem); /* 14px */
@@ -33,4 +36,8 @@
   .text-3xl {
     font-size: var(--text-3xl);
   }
+}
+
+@theme {
+  --color-primary: var(--color-primary);
 }
