@@ -28,7 +28,13 @@ export default defineConfig({
           "chevron-right-rounded",
           "license",
         ],
-        lucide: ["users", "graduation-cap", "alarm-clock", "chart-no-axes-combined"]
+        lucide: [
+          "users",
+          "graduation-cap",
+          "alarm-clock",
+          "chart-no-axes-combined",
+        ],
+        carbon: ["document-set"],
       },
     }),
     react(),

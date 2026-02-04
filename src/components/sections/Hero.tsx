@@ -280,7 +280,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 ⌛️ {program.duration}
               </span>
 
-              <button className='bg-primary text-white font-medium tracking-wide p-3 rounded-lg text-md'>
+              <button className='bg-primary text-white font-medium tracking-wide p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 transition-colors'>
                 Solicitar información
               </button>
             </div>

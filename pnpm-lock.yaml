@@ -11,6 +11,9 @@ importers:
       '@astrojs/react':
         specifier: ^4.4.2
         version: 4.4.2(@types/node@25.1.0)(@types/react-dom@19.2.3(@types/react@19.2.10))(@types/react@19.2.10)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@iconify-json/carbon':
+        specifier: ^1.2.18
+        version: 1.2.18
       '@iconify-json/ep':
         specifier: ^1.2.4
         version: 1.2.4
@@ -339,6 +342,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@iconify-json/carbon@1.2.18':
+    resolution: {integrity: sha512-Grb13E6r/RqTEV4Sqd/BQR2FUt57U2WLuticJ5H8JbTdHLop1LmdePu3EJJA3Xi8DcWRbD6OnC133hKfOwlgtg==}
 
   '@iconify-json/ep@1.2.4':
     resolution: {integrity: sha512-dtKOueYp1CRxAUW+GayIiuHqOlELfO0W3QiHOH4NjvKtBn2uxZbByIKQ+7B1Hj+AgZrhWTie3QKYkZn+VQVZrw==}
@@ -2444,6 +2450,10 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.12':
     optional: true
+
+  '@iconify-json/carbon@1.2.18':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/ep@1.2.4':
     dependencies:

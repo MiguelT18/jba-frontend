@@ -1,6 +1,4 @@
 ---
-import PrimaryButton from "../ui/PrimaryButton.astro";
-
 interface AccreditationData {
   title: string;
   description: string;
@@ -23,29 +21,31 @@ const accreditationData: AccreditationData[] = [
 ---
 
 <section>
-  <h1>Programas Avalados</h1>
-  <p>
-    Nuestros programas están avalados por el estado DPOR-VIRGINIA. Estos
-    programas cumplen los requisitos estatales más rigurosos y conducen a una
-    licencia profesional en Virginia.
-  </p>
-
-  <ul>
-    {
-      accreditationData.map((item) => (
-        <li>
-          <strong>{item.title}:</strong>
-          {item.description}
-        </li>
-      ))
-    }
-  </ul>
-
-  <PrimaryButton>Regístrate</PrimaryButton>
-
   <article>
-    <h1>DPOR-VIRGINIA</h1>
-    <p>Departamento de Ocupaciones Profesionales y Regulación</p>
-    <div>Certificación #2024-VA-COSMETOLOGY</div>
+    <h1>Programas Avalados</h1>
+    <p>
+      Nuestros programas están avalados por el estado
+      <strong>DPOR-VIRGINIA</strong>. Estos programas cumplen los requisitos
+      estatales más rigurosos y conducen a una licencia profesional en Virginia.
+    </p>
+
+    <ul>
+      {
+        accreditationData.map((item) => (
+          <li>
+            <strong>{item.title}:</strong>
+            {item.description}
+          </li>
+        ))
+      }
+    </ul>
+
+    <button>Regístrate</button>
+
+    <div>
+      <h1>DPOR-VIRGINIA</h1>
+      <p>Departamento de Ocupaciones Profesionales y Regulación</p>
+      <div>Certificación #2024-VA-COSMETOLOGY</div>
+    </div>
   </article>
 </section>
