@@ -1,13 +1,27 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/components/sections/Hero.astro";
 import Navbar from "@/components/ui/Navbar.astro";
+import Hero from "@/components/sections/Hero.tsx";
+import Introduction from "@/components/sections/Introduction.astro";
+import Accreditation from "@/components/sections/Accreditation.astro";
+import About from "@/components/sections/About.astro";
+import Partners from "@/components/sections/Partners.astro";
+import Programs from "@/components/sections/Programs.astro";
+import Admissions from "@/components/sections/Admissions.astro";
+import Footer from "@/components/sections/Footer.astro";
 ---
 
 <Layout
-  title="Jolimia Beauty Academy"
-  description="Descubre la belleza en cada paso de tu vida con nosotros."
+  title='Jolimia Beauty Academy'
+  description='Descubre la belleza en cada paso de tu vida con nosotros.'
 >
   <Navbar />
-  <Hero />
+  <Hero client:load carouselOptions={{ pauseAutoplayOnInteraction: true }} />
+  <Introduction />
+  <Accreditation />
+  <About />
+  <Partners />
+  <Programs />
+  <Admissions />
+  <Footer />
 </Layout>

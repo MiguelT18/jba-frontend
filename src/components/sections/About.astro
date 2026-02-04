@@ -1,0 +1,40 @@
+---
+const valuesData = [
+  "Calidad",
+  "Disciplina",
+  "Higiene",
+  "Respeto",
+  "Crecimiento",
+  "Profesionalismo",
+];
+---
+
+<section>
+  <h1>Quiénes somos</h1>
+
+  <div>
+    <h2>Nuestra misión</h2>
+    <p>
+      Empoderar a estudiantes con formación técnica, práctica y profesional en
+      la industria de la belleza, preparándolos para ejercer con confianza,
+      responsabilidad y éxito.
+    </p>
+  </div>
+
+  <div>
+    <h2>Nuestra visión</h2>
+    <p>
+      Ser una academia reconocida en Virginia por su excelencia educativa, ética
+      profesional y resultados reales.
+    </p>
+  </div>
+
+  <ul>
+    {valuesData.map((value) => <li>{value}</li>)}
+  </ul>
+
+  <div>
+    <span>En Jolimia</span> no solo aprendes técnica. Aprendes disciplina, ética,
+    servicio al cliente y mentalidad profesional.
+  </div>
+</section>

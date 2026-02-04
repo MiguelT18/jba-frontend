@@ -1,0 +1,25 @@
+---
+const partnersData = [
+  {
+    name: "Belleza Integral Pro",
+  },
+  {
+    name: "Nails Perfection",
+  },
+  {
+    name: "Estética Moderna",
+  },
+  {
+    name: "Cabello & Estilo",
+  },
+];
+---
+
+<section>
+  <h1>Nuestros Colaboradores</h1>
+  <p>Trabajamos con los mejores salones y empresas de la industria</p>
+
+  <ul>
+    {partnersData.map((partner) => <li>{partner.name}</li>)}
+  </ul>
+</section>

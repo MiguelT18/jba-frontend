@@ -1,0 +1,51 @@
+---
+import PrimaryButton from "../ui/PrimaryButton.astro";
+
+interface AccreditationData {
+  title: string;
+  description: string;
+}
+
+const accreditationData: AccreditationData[] = [
+  {
+    title: "Reconocimiento estatal",
+    description: "Licencias válidas en todo virginia.",
+  },
+  {
+    title: "Estándares rigurosos",
+    description: "Cumplimos con todas las normas y regulaciones.",
+  },
+  {
+    title: "Preparación garantizada",
+    description: "Cursos diseñados para pasar el examen estatal.",
+  },
+];
+---
+
+<section>
+  <h1>Programas Avalados</h1>
+  <p>
+    Nuestros programas están avalados por el estado DPOR-VIRGINIA. Estos
+    programas cumplen los requisitos estatales más rigurosos y conducen a una
+    licencia profesional en Virginia.
+  </p>
+
+  <ul>
+    {
+      accreditationData.map((item) => (
+        <li>
+          <strong>{item.title}:</strong>
+          {item.description}
+        </li>
+      ))
+    }
+  </ul>
+
+  <PrimaryButton>Regístrate</PrimaryButton>
+
+  <article>
+    <h1>DPOR-VIRGINIA</h1>
+    <p>Departamento de Ocupaciones Profesionales y Regulación</p>
+    <div>Certificación #2024-VA-COSMETOLOGY</div>
+  </article>
+</section>

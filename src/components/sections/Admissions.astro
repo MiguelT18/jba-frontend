@@ -1,0 +1,84 @@
+---
+import PrimaryButton from "../ui/PrimaryButton.astro";
+
+interface ProcessSteps {
+  number: number;
+  title: string;
+  description: string;
+}
+
+const requirements: string[] = [
+  "Diploma de High School o equivalente (para programas DPOR)",
+  "Completar aplicación de inscripción",
+  "Entrevista con el equipo académico",
+  "Mayor de edad",
+  "Prueba de identidad válida",
+];
+
+const processSteps: ProcessSteps[] = [
+  {
+    number: 1,
+    title: "Solicitud",
+    description:
+      "Completa el formulario de solicitud en línea o presencialmente",
+  },
+  {
+    number: 2,
+    title: "Entrevista",
+    description: "Realiza una entrevista con nuestro equipo de admisiones",
+  },
+  {
+    number: 3,
+    title: "Documentación",
+    description: "Envía los documentos requeridos (ID, diploma, etc)",
+  },
+  {
+    number: 4,
+    title: "Confirmación",
+    description: "Recibe tu carta de aceptación y comienza tu programa",
+  },
+];
+---
+
+<section>
+  <h1>Admisiones</h1>
+  <p>El primer paso hacia tu carrera profesional en belleza</p>
+
+  <div>
+    <div>
+      <h2>Requisitos Generales</h2>
+      <ul>
+        {requirements.map((requirement) => <li>{requirement}</li>)}
+      </ul>
+      <p>
+        <span>Nota importante:</span> Para estudiantes internacionales se requiere
+        visa válida y documentación adicional.
+      </p>
+    </div>
+
+    <div>
+      <h2>Proceso de Inscripción</h2>
+      <ul>
+        {
+          processSteps.map((step) => (
+            <li>
+              <span>{step.number}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <article>
+    <h2>¿Listo para comenzar?</h2>
+    <p>
+      Inicia tu solicitud hoy y sé parte de la comunidad Jolimia Beauty Academy
+    </p>
+    <PrimaryButton>Solicitar Admisión</PrimaryButton>
+  </article>
+</section>

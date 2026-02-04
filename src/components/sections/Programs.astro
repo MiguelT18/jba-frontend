@@ -1,0 +1,126 @@
+---
+import PrimaryButton from "@/components/ui/PrimaryButton.astro";
+
+interface ProgramsData {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
+  license: string;
+  includes: string[];
+}
+
+interface NotesData {
+  title: string;
+  description: string;
+}
+
+const programsData: ProgramsData[] = [
+  {
+    id: "cosmetologia",
+    title: "Programa de Cosmetología",
+    description:
+      "Domina corte, color, estilizado y tratamientos capilares. Aprende servicios químicos, bases de piel, higiene y seguridad profesional.",
+    duration: "1,000 horas",
+    license: "Licencia de Cosmetología - Virginia",
+    includes: [
+      "Corte y color",
+      "Estilizado profesional",
+      "Servicios químicos",
+      "Examen estatal",
+    ],
+  },
+  {
+    id: "tecnico-unas",
+    title: "Técnico en Uñas",
+    description:
+      "Especialízate en manicure, pedicure, sistemas de gel y acrílico. Aprende nail art y protocolos de control de infecciones.",
+    duration: "150 horas",
+    license: "Licencia de Técnico en Uñas - Virginia",
+    includes: [
+      "Manicure profesional",
+      "Pedicure",
+      "Gel y acrílico",
+      "Examen estatal",
+    ],
+  },
+  {
+    id: "tecnico-depilacion",
+    title: "Técnico en Depilación",
+    description:
+      "Aprende depilación facial y corporal con protocolos de seguridad. Domina preparación de piel y cuidados post-depilación.",
+    duration: "115 horas",
+    license: "Licencia de Técnico en Depilación - Virginia",
+    includes: [
+      "Depilación facial",
+      "Depilación corporal",
+      "Protocolos de higiene",
+      "Examen estatal",
+    ],
+  },
+];
+
+const notesData: NotesData[] = [
+  {
+    title: "Educación 100% presencial",
+    description:
+      "Todas las clases son en nuestras instalaciones con supervisión constante.",
+  },
+  {
+    title: "Cupos limitados",
+    description:
+      "Grupos pequeños para garantizar atención personalizada y aprendizaje de calidad.",
+  },
+  {
+    title: "Preparación garantizada",
+    description:
+      "Cursos diseñados para prepararte exitosamente para el examen estatal.",
+  },
+  {
+    title: "Instructores licenciados",
+    description:
+      "Aprende de profesionales con experiencia real en salón y spa.",
+  },
+];
+---
+
+<section>
+  <h1>Programas Avalados por DPOR</h1>
+  <p>Formación profesional que conduce a licencia en Virginia</p>
+
+  <div>
+    {
+      programsData.map((program) => (
+        <article>
+          <span>DPOR</span>
+          <h3>{program.title}</h3>
+          <span>{program.duration}</span>
+          <span>{program.license}</span>
+          <p>{program.description}</p>
+          <span>Incluye:</span>
+          <ul>
+            {program.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <PrimaryButton>Solicitar información</PrimaryButton>
+        </article>
+      ))
+    }
+  </div>
+
+  <div>
+    <h2>Información importante</h2>
+
+    <ul>
+      {
+        notesData.map((note) => (
+          <li>
+            <span>{note.title}</span>
+            {note.description}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

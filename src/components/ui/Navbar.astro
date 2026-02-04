@@ -3,11 +3,15 @@ import { Icon } from "astro-icon/components";
 ---
 
 <nav
-  class="fixed top-0 left-0 w-full bg-white/10 backdrop-blur-sm px-4 py-3 z-20 flex items-center justify-between"
+  class='sticky top-0 w-full bg-white/40 backdrop-blur-sm px-6 py-4 z-20 flex items-center justify-between'
 >
-  <h1 class="text-white text-2xl font-bold">LOGO</h1>
+  <h1
+    class='text-xl font-bold bg-linear-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent'
+  >
+    Jolimia Beauty Academy
+  </h1>
 
-  <button type="button" class="text-white">
-    <Icon name="material-symbols:menu-rounded" class="size-8" />
+  <button type='button'>
+    <Icon name='material-symbols:menu-rounded' class='size-8' />
   </button>
 </nav>
