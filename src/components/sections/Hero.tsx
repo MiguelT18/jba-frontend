@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export interface CarouselOptions {
   /** Habilita el avance automático de slides */
@@ -25,28 +25,28 @@ interface Programs {
 
 const programs: Programs[] = [
   {
-    id: "cosmetologia",
-    title: "Cosmetología",
+    id: 'cosmetologia',
+    title: 'Cosmetología',
     description:
-      "Programa completo avalado por DPOR que conduce a licencia de Cosmetología en Virginia",
-    duration: "1,000 horas",
-    image: "/src/images/carousel-03.webp",
+      'Programa completo avalado por DPOR que conduce a licencia de Cosmetología en Virginia',
+    duration: '1,000 horas',
+    image: '/src/images/carousel-03.webp',
   },
   {
-    id: "tecnico-unas",
-    title: "Técnico en Uñas",
+    id: 'tecnico-unas',
+    title: 'Técnico en Uñas',
     description:
-      "Especialízate en manicure, pedicure y nail art con licencia profesional",
-    duration: "150 horas",
-    image: "/src/images/carousel-02.webp",
+      'Especialízate en manicure, pedicure y nail art con licencia profesional',
+    duration: '150 horas',
+    image: '/src/images/carousel-02.webp',
   },
   {
-    id: "tecnico-depilacion",
-    title: "Técnico en Depilación",
+    id: 'tecnico-depilacion',
+    title: 'Técnico en Depilación',
     description:
-      "Aprende depilación profesional facial y corporal con protocolos de seguridad",
-    duration: "115 horas",
-    image: "/src/images/carousel-01.webp",
+      'Aprende depilación profesional facial y corporal con protocolos de seguridad',
+    duration: '115 horas',
+    image: '/src/images/carousel-01.webp',
   },
 ];
 
@@ -123,7 +123,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
     isProgrammaticScrollRef.current = true;
     carousel.scrollTo({
       left: index * width,
-      behavior: smooth && !isWrapping ? "smooth" : "auto",
+      behavior: smooth && !isWrapping ? 'smooth' : 'auto',
     });
     setCurrentSlide(index);
     const delay = smooth && !isWrapping ? 600 : 50;
@@ -175,18 +175,18 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
       }
     };
 
-    carousel.addEventListener("scroll", pauseOnUserScroll, { passive: true });
+    carousel.addEventListener('scroll', pauseOnUserScroll, { passive: true });
 
     const pauseOnUserPointer = () => setIsAutoplayPaused(true);
-    carousel.addEventListener("touchstart", pauseOnUserPointer, {
+    carousel.addEventListener('touchstart', pauseOnUserPointer, {
       passive: true,
     });
-    carousel.addEventListener("wheel", pauseOnUserPointer, { passive: true });
+    carousel.addEventListener('wheel', pauseOnUserPointer, { passive: true });
 
     return () => {
-      carousel.removeEventListener("scroll", pauseOnUserScroll);
-      carousel.removeEventListener("touchstart", pauseOnUserPointer);
-      carousel.removeEventListener("wheel", pauseOnUserPointer);
+      carousel.removeEventListener('scroll', pauseOnUserScroll);
+      carousel.removeEventListener('touchstart', pauseOnUserPointer);
+      carousel.removeEventListener('wheel', pauseOnUserPointer);
     };
   }, [options.pauseAutoplayOnInteraction]);
 
@@ -230,7 +230,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
         const entry = entries[0];
         if (entry) setIsHeroInView(entry.isIntersecting);
       },
-      { root: null, rootMargin: "0px", threshold: 0.1 }
+      { root: null, rootMargin: '0px', threshold: 0.1 }
     );
     observer.observe(main);
     return () => observer.disconnect();
@@ -241,7 +241,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
       <div
         ref={carouselRef}
         className='flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth touch-pan-x'
-        style={{ scrollBehavior: "smooth" }}
+        style={{ scrollBehavior: 'smooth' }}
       >
         {programs.map((program, idx) => (
           <article
@@ -255,9 +255,9 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
               <img
                 src={program.image}
                 alt={`Imagen del programa ${program.title}`}
-                loading={idx === 0 ? "eager" : "lazy"}
+                loading={idx === 0 ? 'eager' : 'lazy'}
                 decoding='async'
-                fetchPriority={idx === 0 ? "high" : "low"}
+                fetchPriority={idx === 0 ? 'high' : 'low'}
                 className='size-full object-cover'
               />
               <div
@@ -280,7 +280,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 ⌛️ {program.duration}
               </span>
 
-              <button className='bg-primary text-white font-medium tracking-wide p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 transition-colors'>
+              <button className='bg-primary text-white font-bold tracking-wide p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 transition-colors'>
                 Solicitar información
               </button>
             </div>
@@ -321,11 +321,11 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
             onClick={() => goToSlideByUser(idx)}
             className={`h-2.5 shrink-0 transition-all duration-300 ease-in-out rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-transparent ${
               currentSlide === idx
-                ? "w-6 bg-primary"
-                : "w-2.5 bg-primary/50 hover:bg-primary/80"
+                ? 'w-6 bg-primary'
+                : 'w-2.5 bg-primary/50 hover:bg-primary/80'
             }`}
             aria-label={`Ir al slide ${idx + 1}`}
-            aria-current={currentSlide === idx ? "true" : undefined}
+            aria-current={currentSlide === idx ? 'true' : undefined}
           />
         ))}
       </div>

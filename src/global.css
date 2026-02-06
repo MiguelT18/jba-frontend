@@ -4,8 +4,7 @@
   /* Paleta de colores */
   --color-primary: #f5405e;
 
-  /* Colores de texto */
-  --text-light: #f2f2f0;
+  --color-fg-default: #374151;
 
   /* Tamaños de texto: clamp(min, preferred, max) */
   --text-xs: clamp(0.875rem, 0.825rem + 0.2vw, 0.925rem);
@@ -49,9 +48,11 @@ body {
 }
 
 @theme {
+  /* layout colors */
   --color-primary: var(--color-primary);
 
-  --text-light: var(--text-light);
+  /* text colors */
+  --color-fg-default: var(--color-fg-default);
 }
 
 .scrollbar-hide::-webkit-scrollbar {

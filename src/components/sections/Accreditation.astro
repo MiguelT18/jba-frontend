@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface AccreditationData {
   title: string;
   description: string;
@@ -6,46 +8,71 @@ interface AccreditationData {
 
 const accreditationData: AccreditationData[] = [
   {
-    title: "Reconocimiento estatal",
-    description: "Licencias válidas en todo virginia.",
+    title: 'Reconocimiento estatal',
+    description: 'Licencias válidas en todo virginia.',
   },
   {
-    title: "Estándares rigurosos",
-    description: "Cumplimos con todas las normas y regulaciones.",
+    title: 'Estándares rigurosos',
+    description: 'Cumplimos con todas las normas y regulaciones.',
   },
   {
-    title: "Preparación garantizada",
-    description: "Cursos diseñados para pasar el examen estatal.",
+    title: 'Preparación garantizada',
+    description: 'Cursos diseñados para pasar el examen estatal.',
   },
 ];
 ---
 
-<section>
-  <article>
-    <h1>Programas Avalados</h1>
-    <p>
+<section class='max-md:px-4 container mx-auto py-10'>
+  <article class='bg-linear-to-r from-rose-50 to-pink-50 rounded-3xl p-6'>
+    <h1 class='text-xl font-bold flex items-center gap-2'>
+      <Icon name='lucide:file-check' class='text-primary size-8' />
+      Programas Avalados
+    </h1>
+    <p class='text-sm text-fg-default mt-4'>
       Nuestros programas están avalados por el estado
       <strong>DPOR-VIRGINIA</strong>. Estos programas cumplen los requisitos
       estatales más rigurosos y conducen a una licencia profesional en Virginia.
     </p>
 
-    <ul>
+    <ul class='my-4 space-y-2'>
       {
         accreditationData.map((item) => (
-          <li>
-            <strong>{item.title}:</strong>
-            {item.description}
+          <li class='text-fg-default flex items-center gap-2'>
+            <span class='inline-block'>
+              <Icon
+                name='lucide:circle-check-big'
+                class='text-green-500 size-6'
+              />
+            </span>
+            <span class='inline-block'>
+              <strong>{item.title}:</strong>
+              {item.description}
+            </span>
           </li>
         ))
       }
     </ul>
 
-    <button>Regístrate</button>
+    <button
+      class='w-full bg-linear-to-br from-primary to-pink-500 text-white font-bold tracking-wide p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 transition-colors'
+    >
+      Regístrate
+    </button>
 
-    <div>
-      <h1>DPOR-VIRGINIA</h1>
-      <p>Departamento de Ocupaciones Profesionales y Regulación</p>
-      <div>Certificación #2024-VA-COSMETOLOGY</div>
+    <div class='bg-white shadow-black/30 shadow-md rounded-xl mt-5 p-4'>
+      <Icon
+        name='iconamoon:shield-yes'
+        class='text-white size-14 p-2 bg-linear-to-br from-primary to-pink-500 rounded-full mx-auto'
+      />
+      <h1 class='mt-4 font-bold text-lg text-center'>DPOR-VIRGINIA</h1>
+      <p class='text-fg-default text-sm text-center'>
+        Departamento de Ocupaciones Profesionales y Regulación
+      </p>
+      <div
+        class='text-sm text-center text-gray-500 font-mono bg-gray-100 p-4 rounded mt-2'
+      >
+        Certificación <br /> #2024-VA-COSMETOLOGY
+      </div>
     </div>
   </article>
 </section>

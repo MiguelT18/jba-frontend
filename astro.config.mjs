@@ -1,11 +1,11 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
 
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
 
-import icon from "astro-icon";
+import icon from 'astro-icon';
 
-import react from "@astrojs/react";
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,21 +20,24 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
-        pixel: ["code-block-solid"],
-        ep: ["arrow-up-bold"],
-        "material-symbols": [
-          "menu-rounded",
-          "chevron-left-rounded",
-          "chevron-right-rounded",
-          "license",
+        pixel: ['code-block-solid'],
+        ep: ['arrow-up-bold'],
+        'material-symbols': [
+          'menu-rounded',
+          'chevron-left-rounded',
+          'chevron-right-rounded',
+          'license',
         ],
         lucide: [
-          "users",
-          "graduation-cap",
-          "alarm-clock",
-          "chart-no-axes-combined",
+          'users',
+          'graduation-cap',
+          'alarm-clock',
+          'chart-no-axes-combined',
+          'file-check',
+          'circle-check-big',
         ],
-        carbon: ["document-set"],
+        carbon: ['document-set'],
+        iconamoon: ['shield-yes'],
       },
     }),
     react(),
