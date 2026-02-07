@@ -103,29 +103,31 @@ const notesData: NotesData[] = [
   >
     Programas Avalados por DPOR
   </h1>
-  <p class='block text-md text-fg-default text-balance text-center'>
+  <p
+    class='inline-block w-full text-md text-fg-default text-balance text-center'
+  >
     Formación profesional que conduce a licencia en Virginia
   </p>
 
-  <div class='grid mt-4'>
+  <div class='grid mt-6'>
     {
       programsData.map((program) => (
         <article
           style={`background: url('${program.image}'); background-size: cover; background-repeat: no-repeat; background-position: center;`}
-          class='w-full h-auto shadow-black/30 shadow-md rounded-2xl px-4 pt-60 pb-5 relative'
+          class='w-full h-auto shadow-black/30 shadow-md rounded-2xl px-4 pt-30 pb-5 relative flex justify-center items-end'
         >
           <span class='absolute top-4 right-4 z-10 bg-rose-500 text-white text-xs font-bold px-4 py-2 rounded-full flex items-center shadow-lg'>
-            <Icon name='bitcoin-icons:verify-outline' class='size-8' />
+            <Icon name='bitcoin-icons:verify-filled' class='size-8' />
             DPOR
           </span>
 
           <div class='relative z-10'>
-            <h3 class='text-white text-lg font-bold'>{program.title}</h3>
-            <span class='w-fit flex items-center gap-1 mt-2 mb-4 text-yellow-300 font-bold text-sm'>
+            <h3 class='text-white text-xl font-bold'>{program.title}</h3>
+            <span class='w-fit flex items-center gap-1 mt-2 mb-4 text-fg-default-light font-bold text-sm'>
               <Icon name='lucide:clock' class='size-4' />
               {program.duration}
             </span>
-            <span class='inline-block w-full text-sm text-primary bg-black/30 p-4 backdrop-blur-sm rounded-lg mb-2 font-semibold'>
+            <span class='inline-block w-full text-sm text-pink-300 bg-pink-600/30 p-4 backdrop-blur-sm rounded-lg mb-2 font-semibold'>
               {program.license}
             </span>
             <p class='inline-block w-full text-sm text-fg-default-light mt-4'>
@@ -142,7 +144,7 @@ const notesData: NotesData[] = [
             </ul>
             <button
               type='button'
-              class='bg-linear-to-br from-rose-500 to-pink-500 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wide flex items-center justify-center gap-2'
+              class='bg-linear-to-tl from-rose-500 to-pink-500 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wide flex items-center justify-center gap-2'
             >
               <Icon name='mdi:register-outline' class='size-5' />
               Registrarse
@@ -156,7 +158,7 @@ const notesData: NotesData[] = [
   </div>
 
   <div
-    class='mt-8 bg-linear-to-r from-rose-50 to-pink-50 rounded-2xl p-5 border border-rose-200'
+    class='mt-10 bg-linear-to-r from-rose-50 to-pink-50 rounded-2xl p-5 border border-rose-200'
   >
     <h2 class='mb-4 text-xl font-bold'>Información importante</h2>
     <ul class='w-full flex flex-col gap-4'>

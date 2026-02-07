@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Certifications {
   id: number;
   title: string;
@@ -9,58 +11,88 @@ interface Certifications {
 const certifications: Certifications[] = [
   {
     id: 1,
-    title: "Extensiones de Pestañas - Técnica Clásica",
+    title: 'Extensiones de Pestañas - Técnica Clásica',
     description:
-      "Aplicación pelo a pelo con enfoque en técnica, seguridad e higiene. Ideal para principiantes que desean especializarse.",
-    level: "Principiante",
+      'Aplicación pelo a pelo con enfoque en técnica, seguridad e higiene. Ideal para principiantes que desean especializarse.',
+    level: 'Principiante',
   },
   {
     id: 2,
-    title: "Extensiones Avanzada - Volumen e Híbrida",
+    title: 'Extensiones Avanzada - Volumen e Híbrida',
     description:
-      "Domina volumen ruso e híbrido, mapeo avanzado y diseño perfeccionado. Requiere experiencia o certificación previa.",
-    level: "Avanzado",
+      'Domina volumen ruso e híbrido, mapeo avanzado y diseño perfeccionado. Requiere experiencia o certificación previa.',
+    level: 'Avanzado',
   },
   {
     id: 3,
-    title: "Lifting de Pestañas y Laminado de Cejas",
+    title: 'Lifting de Pestañas y Laminado de Cejas',
     description:
-      "Elevación profesional de pestañas, laminado y diseño de cejas con protocolos y selección de productos.",
-    level: "Especialización",
+      'Elevación profesional de pestañas, laminado y diseño de cejas con protocolos y selección de productos.',
+    level: 'Especialización',
   },
   {
     id: 4,
-    title: "Profesional en Maquillaje",
+    title: 'Profesional en Maquillaje',
     description:
-      "Maquillaje de día, noche, social y profesional. Para eventos, fotografía y redes sociales con corrección de piel.",
-    level: "Especialización",
+      'Maquillaje de día, noche, social y profesional. Para eventos, fotografía y redes sociales con corrección de piel.',
+    level: 'Especialización',
   },
 ];
 ---
 
-<section>
-  <h1>Certificaciones Profesionales</h1>
-  <p>
+<section class='py-10 px-4'>
+  <h1
+    class='inline-block w-full text-2xl text-center text-balance font-bold mb-1'
+  >
+    Certificaciones Profesionales
+  </h1>
+  <p
+    class='inline-block w-full text-md text-fg-default text-balance text-center'
+  >
     Especializa tu perfil con certificaciones privadas diseñadas para ampliar
     servicios
   </p>
 
-  <div>
+  <div class='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-5 mb-10'>
     {
       certifications.map((certification) => (
-        <article>
-          <span>{certification.level}</span>
-          <h3>{certification.title}</h3>
-          <p>{certification.description}</p>
-          <button type="button">Conocer más</button>
+        <article class='bg-linear-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-5 hover:shadow-lg transition-all duration-300 hover:border-rose-200 flex flex-col'>
+          <div class='flex items-center gap-2 mb-4'>
+            <Icon name='lucide:award' class='size-6 text-rose-500' />
+            <span
+              class={`text-xs font-bold px-3 py-1 rounded-full ${certification.level === 'Principiante' ? 'bg-green-100 text-green-700' : certification.level === 'Avanzado' ? 'bg-purple-100 text-purple-700' : certification.level === 'Especialización' ? 'bg-rose-100 text-rose-700' : ''}`}
+            >
+              {certification.level}
+            </span>
+          </div>
+          <div class='space-y-2'>
+            <h3 class='inline-block w-full text-lg font-bold'>
+              {certification.title}
+            </h3>
+            <p class='inline-block w-full text-sm text-fg-default text-start'>
+              {certification.description}
+            </p>
+          </div>
+
+          <button
+            type='button'
+            class='border-2 border-rose-500 text-rose-500 tracking-wide font-bold py-3 mt-5 rounded-lg'
+          >
+            Conocer más
+          </button>
         </article>
       ))
     }
   </div>
 
-  <div>
-    <h2>Nota importante</h2>
-    <p>
+  <div
+    class='bg-linear-to-r from-rose-500 to-pink-500 rounded-2xl p-8 lg:p-12 text-white'
+  >
+    <div class='flex items-center gap-2 text-white mb-4'>
+      <Icon name='lucide:star' class='size-8' />
+      <h2 class='text-xl font-bold'>Nota importante</h2>
+    </div>
+    <p class='text-sm text-fg-default-light font-medium'>
       Las certificaciones profesionales no otorgan licencia estatal. Están
       diseñadas para especialización y actualización profesional. Los programas
       avalados por DPOR (Cosmetología, Técnico en Uñas y Técnico en Depilación)
