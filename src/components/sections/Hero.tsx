@@ -11,7 +11,7 @@ export interface CarouselOptions {
 
 const DEFAULT_CAROUSEL_OPTIONS: CarouselOptions = {
   autoplay: true,
-  autoplayIntervalMs: 3000,
+  autoplayIntervalMs: 5000,
   pauseAutoplayOnInteraction: true,
 };
 
@@ -240,7 +240,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
     <main ref={mainRef} className='relative h-[90dvh]'>
       <div
         ref={carouselRef}
-        className='flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth touch-pan-x'
+        className='flex h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide scroll-smooth touch-scroll-x'
         style={{ scrollBehavior: 'smooth' }}
       >
         {programs.map((program, idx) => (
@@ -271,7 +271,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 <h2 className='block text-white text-3xl font-bold tracking-tight md:text-4xl'>
                   {program.title}
                 </h2>
-                <p className='block max-w-xl text-md opacity-95 md:text-lg'>
+                <p className='block max-w-xl text-md text-white opacity-95 md:text-lg'>
                   {program.description}
                 </p>
               </div>
@@ -280,8 +280,19 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 ⌛️ {program.duration}
               </span>
 
-              <button className='bg-primary text-white font-bold tracking-wide p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 transition-colors'>
-                Solicitar información
+              <button className='bg-linear-to-tl from-rose-500 to-pink-500 text-white font-bold tracking-wide p-3 rounded-lg text-md cursor-pointer hover:bg-rose-500/70 transition-colors flex items-center gap-2'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width={24}
+                  height={24}
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    fill='currentColor'
+                    d='M15 4a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4m0 1.9a2.1 2.1 0 1 1 0 4.2A2.1 2.1 0 0 1 12.9 8A2.1 2.1 0 0 1 15 5.9M4 7v3H1v2h3v3h2v-3h3v-2H6V7zm11 6c-2.67 0-8 1.33-8 4v3h16v-3c0-2.67-5.33-4-8-4m0 1.9c2.97 0 6.1 1.46 6.1 2.1v1.1H8.9V17c0-.64 3.1-2.1 6.1-2.1'
+                  ></path>
+                </svg>
+                Registrarse
               </button>
             </div>
           </article>
@@ -319,10 +330,10 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
             key={idx}
             type='button'
             onClick={() => goToSlideByUser(idx)}
-            className={`h-2.5 shrink-0 transition-all duration-300 ease-in-out rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-transparent ${
+            className={`h-2.5 shrink-0 transition-all duration-300 ease-in-out rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-500/60 focus:ring-offset-2 focus:ring-offset-transparent ${
               currentSlide === idx
-                ? 'w-6 bg-primary'
-                : 'w-2.5 bg-primary/50 hover:bg-primary/80'
+                ? 'w-6 bg-rose-500'
+                : 'w-2.5 bg-rose-500/50 hover:bg-rose-500/80'
             }`}
             aria-label={`Ir al slide ${idx + 1}`}
             aria-current={currentSlide === idx ? 'true' : undefined}

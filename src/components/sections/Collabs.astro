@@ -1,0 +1,119 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import CollaboratorLogo from '@/images/collaborator-logo.webp';
+
+interface Collaborator {
+  id: number;
+  name: string;
+  image: ImageMetadata;
+}
+
+const collaborators: Collaborator[] = [
+  {
+    id: 1,
+    name: 'Belleza Integral Pro',
+    image: CollaboratorLogo,
+  },
+  {
+    id: 2,
+    name: 'Nails Perfection',
+    image: CollaboratorLogo,
+  },
+  {
+    id: 3,
+    name: 'Estética Moderna',
+    image: CollaboratorLogo,
+  },
+  {
+    id: 4,
+    name: 'Cabello & Estilo',
+    image: CollaboratorLogo,
+  },
+];
+---
+
+<section class='py-10 container'>
+  <h1
+    class='inline-block w-full text-2xl text-center text-balance font-bold px-4 mb-1'
+  >
+    Nuestros Colaboradores
+  </h1>
+  <p class='block text-md text-fg-default text-balance text-center px-4'>
+    Trabajamos con los mejores salones y empresas de la industria
+  </p>
+
+  <div class='carousel-container mt-8'>
+    <ul class='carousel-track'>
+      {
+        collaborators.map((collab) => (
+          <li class='carousel-item'>
+            <Image
+              src={collab.image}
+              alt={`Logotipo de ${collab.name}`}
+              width={200}
+              height={200}
+              class='rounded-lg'
+            />
+          </li>
+        ))
+      }
+      <!-- Duplicamos los elementos para el loop infinito -->
+      {
+        collaborators.map((collab) => (
+          <li class='carousel-item'>
+            <Image
+              src={collab.image}
+              alt={`Logotipo de ${collab.name}`}
+              width={200}
+              height={200}
+              class='rounded-lg'
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 20s linear infinite;
+    width: max-content;
+  }
+
+  .carousel-item {
+    flex-shrink: 0;
+    list-style: none;
+  }
+
+  /* Pausar la animación al hover */
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Responsive: ajustar velocidad en móviles */
+  @media (max-width: 768px) {
+    .carousel-track {
+      animation-duration: 15s;
+      gap: 1.5rem;
+    }
+  }
+</style>

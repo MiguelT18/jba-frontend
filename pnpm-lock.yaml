@@ -11,6 +11,9 @@ importers:
       '@astrojs/react':
         specifier: ^4.4.2
         version: 4.4.2(@types/node@25.1.0)(@types/react-dom@19.2.3(@types/react@19.2.10))(@types/react@19.2.10)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@iconify-json/bitcoin-icons':
+        specifier: ^1.2.4
+        version: 1.2.4
       '@iconify-json/carbon':
         specifier: ^1.2.18
         version: 1.2.18
@@ -26,6 +29,9 @@ importers:
       '@iconify-json/material-symbols':
         specifier: ^1.2.53
         version: 1.2.53
+      '@iconify-json/mdi':
+        specifier: ^1.2.3
+        version: 1.2.3
       '@iconify-json/pixel':
         specifier: ^1.2.1
         version: 1.2.1
@@ -346,6 +352,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@iconify-json/bitcoin-icons@1.2.4':
+    resolution: {integrity: sha512-whk4aFQZHWEUqfIm1WlN+CIYx/LoSDKQ4A2Vg5Xslflfx7H7ZOHwK5P+NhbPOUqt7n1tXd59ejGbyrrso7NAqg==}
+
   '@iconify-json/carbon@1.2.18':
     resolution: {integrity: sha512-Grb13E6r/RqTEV4Sqd/BQR2FUt57U2WLuticJ5H8JbTdHLop1LmdePu3EJJA3Xi8DcWRbD6OnC133hKfOwlgtg==}
 
@@ -360,6 +369,9 @@ packages:
 
   '@iconify-json/material-symbols@1.2.53':
     resolution: {integrity: sha512-2jXBKFdNzL9zy6chnJqubykL9WZno7rEP6/isSzpp6fKJJMXXhRtVkaGw1Clle0RlXGWzVkd/eiYUH8f9/ILrQ==}
+
+  '@iconify-json/mdi@1.2.3':
+    resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
 
   '@iconify-json/pixel@1.2.1':
     resolution: {integrity: sha512-XwzURAMyZ/BJKeygh4PloKo9cUvS8GfcePueApzwrePvmwCwYT8SC581AQLxJHJl2FZjGWmUMVQ2FN3b9/cYyw==}
@@ -2457,6 +2469,10 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
+  '@iconify-json/bitcoin-icons@1.2.4':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/carbon@1.2.18':
     dependencies:
       '@iconify/types': 2.0.0
@@ -2474,6 +2490,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/material-symbols@1.2.53':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/mdi@1.2.3':
     dependencies:
       '@iconify/types': 2.0.0
 
