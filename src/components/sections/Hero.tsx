@@ -30,7 +30,7 @@ const programs: Programs[] = [
     description:
       'Programa completo avalado por DPOR que conduce a licencia de Cosmetología en Virginia',
     duration: '1,000 horas',
-    image: '/src/images/carousel-03.webp',
+    image: '/images/carousel-03.webp',
   },
   {
     id: 'tecnico-unas',
@@ -38,7 +38,7 @@ const programs: Programs[] = [
     description:
       'Especialízate en manicure, pedicure y nail art con licencia profesional',
     duration: '150 horas',
-    image: '/src/images/carousel-02.webp',
+    image: '/images/carousel-02.webp',
   },
   {
     id: 'tecnico-depilacion',
@@ -46,7 +46,7 @@ const programs: Programs[] = [
     description:
       'Aprende depilación profesional facial y corporal con protocolos de seguridad',
     duration: '115 horas',
-    image: '/src/images/carousel-01.webp',
+    image: '/images/carousel-01.webp',
   },
 ];
 
@@ -140,7 +140,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
       }
       fn();
     },
-    [options.pauseAutoplayOnInteraction]
+    [options.pauseAutoplayOnInteraction],
   );
 
   const goPrev = () => handleUserInteraction(() => goToSlide(currentSlide - 1));
@@ -201,7 +201,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort(
-            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
+            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0),
           )[0];
 
         if (visible) {
@@ -211,7 +211,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
           }
         }
       },
-      { root: carousel, threshold: [0.6] }
+      { root: carousel, threshold: [0.6] },
     );
 
     slides.forEach((slide) => {
@@ -230,7 +230,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
         const entry = entries[0];
         if (entry) setIsHeroInView(entry.isIntersecting);
       },
-      { root: null, rootMargin: '0px', threshold: 0.1 }
+      { root: null, rootMargin: '0px', threshold: 0.1 },
     );
     observer.observe(main);
     return () => observer.disconnect();
