@@ -1,5 +1,6 @@
 ---
-import PrimaryButton from "../ui/PrimaryButton.astro";
+import { Icon } from 'astro-icon/components';
+import PrimaryButton from '../ui/PrimaryButton.astro';
 
 interface ProcessSteps {
   number: number;
@@ -8,77 +9,125 @@ interface ProcessSteps {
 }
 
 const requirements: string[] = [
-  "Diploma de High School o equivalente (para programas DPOR)",
-  "Completar aplicación de inscripción",
-  "Entrevista con el equipo académico",
-  "Mayor de edad",
-  "Prueba de identidad válida",
+  'Diploma de High School o equivalente (para programas DPOR)',
+  'Completar aplicación de inscripción',
+  'Entrevista con el equipo académico',
+  'Mayor de edad',
+  'Prueba de identidad válida',
 ];
 
 const processSteps: ProcessSteps[] = [
   {
     number: 1,
-    title: "Solicitud",
+    title: 'Solicitud',
     description:
-      "Completa el formulario de solicitud en línea o presencialmente",
+      'Completa el formulario de solicitud en línea o presencialmente.',
   },
   {
     number: 2,
-    title: "Entrevista",
-    description: "Realiza una entrevista con nuestro equipo de admisiones",
+    title: 'Entrevista',
+    description: 'Realiza una entrevista con nuestro equipo de admisiones.',
   },
   {
     number: 3,
-    title: "Documentación",
-    description: "Envía los documentos requeridos (ID, diploma, etc)",
+    title: 'Documentación',
+    description: 'Envía los documentos requeridos (ID, diploma, etc).',
   },
   {
     number: 4,
-    title: "Confirmación",
-    description: "Recibe tu carta de aceptación y comienza tu programa",
+    title: 'Confirmación',
+    description: 'Recibe tu carta de aceptación y comienza tu programa.',
   },
 ];
 ---
 
-<section>
-  <h1>Admisiones</h1>
-  <p>El primer paso hacia tu carrera profesional en belleza</p>
-
-  <div>
-    <div>
-      <h2>Requisitos Generales</h2>
-      <ul>
-        {requirements.map((requirement) => <li>{requirement}</li>)}
-      </ul>
-      <p>
-        <span>Nota importante:</span> Para estudiantes internacionales se requiere
-        visa válida y documentación adicional.
-      </p>
-    </div>
-
-    <div>
-      <h2>Proceso de Inscripción</h2>
-      <ul>
-        {
-          processSteps.map((step) => (
-            <li>
-              <span>{step.number}</span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </div>
-
-  <article>
-    <h2>¿Listo para comenzar?</h2>
-    <p>
-      Inicia tu solicitud hoy y sé parte de la comunidad Jolimia Beauty Academy
+<section class='py-10 px-5 bg-pink-50/70'>
+  <div class='container mx-auto'>
+    <h1
+      class='inline-block w-full text-2xl text-center text-balance font-bold mb-1'
+    >
+      Admisiones
+    </h1>
+    <p
+      class='inline-block w-full text-md text-fg-default text-balance text-center'
+    >
+      El primer paso hacia tu carrera profesional en belleza
     </p>
-    <PrimaryButton>Solicitar Admisión</PrimaryButton>
-  </article>
+
+    <div class='mt-6'>
+      <div>
+        <div class='flex items-center gap-2'>
+          <Icon name='lucide:file-text' class='size-6 text-rose-500' />
+          <h2 class='text-xl font-bold'>Requisitos Generales</h2>
+        </div>
+
+        <ul class='space-y-3 mt-4 mb-6 px-5'>
+          {
+            requirements.map((requirement) => (
+              <li class='w-full flex items-center gap-2 text-sm text-fg-default'>
+                <span class='inline-block'>
+                  <Icon
+                    name='lucide:circle-check-big'
+                    class='text-green-500 size-6'
+                  />
+                </span>
+                {requirement}
+              </li>
+            ))
+          }
+        </ul>
+
+        <p
+          class='bg-rose-50 border-l-4 border-rose-500 p-6 rounded-r-lg mt-8 mb-10'
+        >
+          <span class='font-semibold text-rose-700'>Nota importante:</span> Para estudiantes
+          internacionales se requiere visa válida y documentación adicional.
+        </p>
+      </div>
+
+      <div class='size-full'>
+        <h2 class='text-xl lg:text-3xl font-bold text-gray-900 mb-8'>
+          Proceso de Inscripción
+        </h2>
+
+        <ul class='mt-4 space-y-4 px-4'>
+          {
+            processSteps.map((step) => (
+              <li class='flex gap-4'>
+                <div class='w-full shrink-0 flex items-stretch gap-4'>
+                  <span class='flex items-center justify-center w-10 h-10 px-4 rounded-full bg-linear-to-br from-rose-500 to-pink-500 text-white text-md font-bold'>
+                    {step.number}
+                  </span>
+                  <div class='w-full'>
+                    <h3 class='text-md font-bold text-gray-900 mb-1'>
+                      {step.title}
+                    </h3>
+                    <p class='text-sm text-fg-default text-pretty'>
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <article
+      class='mt-10 bg-linear-to-r from-rose-500 to-pink-500 rounded-2xl p-5 text-center text-white'
+    >
+      <h2 class='text-xl font-bold mb-4'>¿Listo para comenzar?</h2>
+      <p class='text-md'>
+        Inicia tu solicitud hoy y sé parte de la comunidad Jolimia Beauty
+        Academy
+      </p>
+      <button
+        type='button'
+        class='bg-white text-rose-600 hover:bg-gray-100 py-3 w-full mt-2 rounded-lg font-bold text-md transition-all duration-300 transform hover:scale-105 shadow-lg'
+      >
+        Solicitar Admisión
+      </button>
+    </article>
+  </div>
 </section>
