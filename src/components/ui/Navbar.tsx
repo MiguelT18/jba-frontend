@@ -23,7 +23,6 @@ export default function Navbar() {
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
-    console.log(openMenu);
   };
 
   return (
@@ -33,7 +32,7 @@ export default function Navbar() {
       </h1>
 
       <button type="button" onClick={handleOpenMenu}>
-        {openMenu ? <MenuIcon /> : <CloseIcon />}
+        {openMenu ? <CloseIcon /> : <MenuIcon />}
       </button>
     </nav>
   );
