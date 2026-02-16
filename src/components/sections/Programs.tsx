@@ -150,7 +150,7 @@ export default function Programs() {
         <h2 className="mb-4 text-xl font-bold">{t.programs.importantInfo}</h2>
         <ul className="w-full flex flex-col gap-4">
           {noteKeys.map((key) => (
-            <li key={key} className="text-fg-default text-sm">
+            <li key={key} className="text-fg-default text-sm leading-relaxed">
               <span className="text-rose-600 font-bold">
                 {t.programs.notes[key].title}
               </span>{" "}

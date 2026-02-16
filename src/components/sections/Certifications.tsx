@@ -47,7 +47,7 @@ export default function Certifications() {
       <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
         {t.certifications.title}
       </h1>
-      <p className="inline-block w-full text-md text-fg-default text-balance text-center">
+      <p className="inline-block w-full text-md text-fg-default text-balance text-center leading-relaxed">
         {t.certifications.subtitle}
       </p>
 
@@ -71,14 +71,14 @@ export default function Certifications() {
                 <h3 className="inline-block w-full text-lg font-bold">
                   {cert.title}
                 </h3>
-                <p className="inline-block w-full text-sm text-fg-default text-start">
+                <p className="inline-block w-full text-sm text-fg-default text-start leading-relaxed">
                   {cert.description}
                 </p>
               </div>
 
               <button
                 type="button"
-                className="border-2 border-rose-500 text-rose-500 tracking-wide font-bold py-3 mt-5 rounded-lg"
+                className="border-2 border-rose-500 text-rose-500 tracking-wider font-bold py-3 mt-5 rounded-lg"
               >
                 {t.certifications.learnMore}
               </button>
@@ -94,7 +94,7 @@ export default function Certifications() {
             {t.certifications.importantNote}
           </h2>
         </div>
-        <p className="text-sm text-fg-default-light font-medium">
+        <p className="text-sm text-fg-default-light font-medium leading-relaxed">
           {t.certifications.importantNoteText}
         </p>
       </div>

@@ -66,7 +66,10 @@ export default function Navbar() {
           Jolimia Beauty Academy
         </h1>
 
-        <button onClick={() => setOpenMenu(!openMenu)}>
+        <button
+          onClick={() => setOpenMenu(!openMenu)}
+          className="outline-0 border-0"
+        >
           {openMenu ? <CloseIcon /> : <MenuIcon />}
         </button>
       </nav>

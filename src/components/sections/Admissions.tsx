@@ -43,7 +43,7 @@ export default function Admissions() {
         <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
           {t.admissions.title}
         </h1>
-        <p className="inline-block w-full text-md text-fg-default text-balance text-center">
+        <p className="inline-block w-full text-md text-fg-default text-balance text-center leading-relaxed">
           {t.admissions.subtitle}
         </p>
 
@@ -60,7 +60,7 @@ export default function Admissions() {
               {t.admissions.requirements.map((req, i) => (
                 <li
                   key={i}
-                  className="w-full flex items-center gap-2 text-sm text-fg-default"
+                  className="w-full flex items-center gap-2 text-sm text-fg-default leading-relaxed"
                 >
                   <span className="inline-block">
                     <CheckIcon />
@@ -70,7 +70,7 @@ export default function Admissions() {
               ))}
             </ul>
 
-            <p className="bg-rose-50 border-l-4 border-rose-500 p-6 rounded-r-lg mt-8 mb-10">
+            <p className="bg-rose-50 border-l-4 border-rose-500 p-6 rounded-r-lg mt-8 mb-10 text-sm leading-relaxed">
               <span className="font-semibold text-rose-700">
                 {t.admissions.importantNote}
               </span>{" "}
@@ -96,7 +96,7 @@ export default function Admissions() {
                         <h3 className="text-md font-bold text-gray-900 mb-1">
                           {step.title}
                         </h3>
-                        <p className="text-sm text-fg-default text-pretty">
+                        <p className="text-sm text-fg-default text-pretty leading-relaxed">
                           {step.description}
                         </p>
                       </div>
@@ -110,7 +110,9 @@ export default function Admissions() {
 
         <article className="mt-10 bg-linear-to-r from-rose-500 to-pink-500 rounded-2xl p-5 text-center text-white">
           <h2 className="text-xl font-bold mb-4">{t.admissions.readyTitle}</h2>
-          <p className="text-md">{t.admissions.readySubtitle}</p>
+          <p className="text-md leading-relaxed">
+            {t.admissions.readySubtitle}
+          </p>
           <button
             type="button"
             className="bg-white text-rose-600 hover:bg-gray-100 py-3 w-full mt-2 rounded-lg font-bold text-md transition-all duration-300 transform hover:scale-105 shadow-lg"
