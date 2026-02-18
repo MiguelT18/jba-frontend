@@ -1,6 +1,7 @@
 ---
 import Analytics from "@vercel/analytics/astro";
 import "@/global.css";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   title: string;
@@ -9,7 +10,7 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -22,5 +23,35 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+
+    <button
+      id="to-top-btn"
+      type="button"
+      class="fixed bottom-4 right-4 p-3 rounded-full bg-black
+           opacity-0 pointer-events-none
+           transition-opacity duration-300 ease-out"
+    >
+      <Icon
+        name="icomoon-free:arrow-down"
+        class="size-6 text-white rotate-180"
+      />
+    </button>
   </body>
 </html>
+
+<script>
+  const $btn = document.getElementById("to-top-btn");
+  const SHOW_AT = 400; // px de scroll vertical
+
+  window.addEventListener("scroll", () => {
+    const shouldShow = window.scrollY > SHOW_AT;
+
+    $btn?.classList.toggle("opacity-100", shouldShow);
+    $btn?.classList.toggle("opacity-0", !shouldShow);
+    $btn?.classList.toggle("pointer-events-none", !shouldShow);
+  });
+
+  $btn?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

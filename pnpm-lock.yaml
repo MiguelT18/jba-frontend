@@ -20,6 +20,9 @@ importers:
       '@iconify-json/ep':
         specifier: ^1.2.4
         version: 1.2.4
+      '@iconify-json/icomoon-free':
+        specifier: ^1.2.1
+        version: 1.2.1
       '@iconify-json/iconamoon':
         specifier: ^1.2.2
         version: 1.2.2
@@ -363,6 +366,9 @@ packages:
 
   '@iconify-json/ep@1.2.4':
     resolution: {integrity: sha512-dtKOueYp1CRxAUW+GayIiuHqOlELfO0W3QiHOH4NjvKtBn2uxZbByIKQ+7B1Hj+AgZrhWTie3QKYkZn+VQVZrw==}
+
+  '@iconify-json/icomoon-free@1.2.1':
+    resolution: {integrity: sha512-Me5L0/vH/LlhVr5R85TFah0LcJD7an6mv+5dagvXY/YnXQsOx3eB7GUioXheSoB8tObhvCuZFbvujMYKPKNWfw==}
 
   '@iconify-json/iconamoon@1.2.2':
     resolution: {integrity: sha512-Xn7YeSDniPgutPr0qil/iQwQelq975OYQ/i2twGjcK4DjGOXBrBC+6q45WtVuQbFfXzM7bgijv4yVnxy0OqUdQ==}
@@ -2481,6 +2487,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/ep@1.2.4':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/icomoon-free@1.2.1':
     dependencies:
       '@iconify/types': 2.0.0
 

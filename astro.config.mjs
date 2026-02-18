@@ -47,6 +47,7 @@ export default defineConfig({
         iconamoon: ['shield-yes'],
         'bitcoin-icons': ['verify-filled'],
         mdi: ['register-outline'],
+        "icomoon-free": ["arrow-down"]
       },
     }),
     react(),
