@@ -8,7 +8,7 @@ export const translations = {
       programs: 'Programs',
       admissions: 'Admissions',
       aboutUs: 'About Us',
-      contact: 'Contact',
+      certifications: 'Certifications',
       language: 'Language',
     },
     hero: {
@@ -223,7 +223,7 @@ export const translations = {
       programs: 'Programas',
       admissions: 'Admisiones',
       aboutUs: 'Acerca de',
-      contact: 'Contacto',
+      certifications: 'Certificaciones',
       language: 'Idioma',
     },
     hero: {

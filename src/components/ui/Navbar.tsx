@@ -36,6 +36,15 @@ const GlobeIcon = () => (
   </svg>
 );
 
+const DarkIcon = () => (
+  <svg width={20} height={20} viewBox="0 0 24 24">
+    <path
+      fill="currentColor"
+      d="M11.01 3.05C6.51 3.54 3 7.36 3 12a9 9 0 0 0 9 9c4.63 0 8.45-3.5 8.95-8c.09-.79-.78-1.42-1.54-.95A5.403 5.403 0 0 1 11.1 7.5c0-1.06.31-2.06.84-2.89c.45-.67-.04-1.63-.93-1.56"
+    ></path>
+  </svg>
+);
+
 export default function Navbar() {
   const { t, locale, setLocale } = useLanguage();
 
@@ -85,32 +94,41 @@ export default function Navbar() {
         <ul className="flex flex-col gap-4 p-6 text-lg font-medium">
           <li>{t.nav.programs}</li>
           <li>{t.nav.admissions}</li>
+          <li>{t.nav.certifications}</li>
           <li>{t.nav.aboutUs}</li>
-          <li>{t.nav.contact}</li>
-          <li className="flex items-center gap-3 pt-2 border-t border-gray-200 mt-2">
-            <span className="flex items-center gap-2 text-sm text-gray-600">
-              <GlobeIcon /> {t.nav.language}
-            </span>
-            <div className="flex gap-2">
-              <button
-                onClick={() => {
-                  setLocale("en");
-                  setOpenMenu(false);
-                }}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${locale === "en" ? "bg-rose-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => {
-                  setLocale("es");
-                  setOpenMenu(false);
-                }}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${locale === "es" ? "bg-rose-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
-              >
-                ES
-              </button>
+          <li className="flex items-center justify-between gap-4 pt-4 border-t border-gray-200 mt-2">
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-2 text-sm text-gray-600">
+                <GlobeIcon /> {t.nav.language}
+              </span>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    setLocale("en");
+                    setOpenMenu(false);
+                  }}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${locale === "en" ? "bg-rose-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => {
+                    setLocale("es");
+                    setOpenMenu(false);
+                  }}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${locale === "es" ? "bg-rose-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+                >
+                  ES
+                </button>
+              </div>
             </div>
+
+            <button
+              type="button"
+              className="p-2 rounded-lg text-gray-600 bg-gray-200"
+            >
+              <DarkIcon />
+            </button>
           </li>
         </ul>
       </div>
