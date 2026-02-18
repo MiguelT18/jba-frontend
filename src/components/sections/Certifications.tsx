@@ -47,7 +47,7 @@ export default function Certifications() {
   };
 
   return (
-    <section className="py-10 px-4">
+    <section id="certifications-section" className="py-10 px-4">
       <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
         {t.certifications.title}
       </h1>

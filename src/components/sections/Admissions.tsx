@@ -42,7 +42,7 @@ export default function Admissions() {
   const { show } = useModal();
 
   return (
-    <section className="py-10 px-5 bg-pink-50/70">
+    <section id="admissions-section" className="py-10 px-5 bg-pink-50/70">
       <div className="container mx-auto">
         <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
           {t.admissions.title}

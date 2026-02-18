@@ -7,7 +7,7 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-pink-50/70 px-4 py-10">
+    <section id="about-section" className="bg-pink-50/70 px-4 py-10">
       <img
         src={aboutUsImage}
         alt={t.about.imageAlt}

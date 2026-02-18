@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const MenuIcon = () => (
@@ -52,6 +52,12 @@ export default function Navbar() {
 
   const menuRef = useRef<HTMLDivElement>(null);
 
+  const scrollToSection = (id: string) => {
+    const $nodeTo = document.getElementById(id) as HTMLElement;
+    setOpenMenu(false);
+    $nodeTo.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       const target = e.target as Node;
@@ -92,10 +98,18 @@ export default function Navbar() {
         `}
       >
         <ul className="flex flex-col gap-4 p-6 text-lg font-medium">
-          <li>{t.nav.programs}</li>
-          <li>{t.nav.admissions}</li>
-          <li>{t.nav.certifications}</li>
-          <li>{t.nav.aboutUs}</li>
+          <li onClick={() => scrollToSection("programs-section")}>
+            {t.nav.programs}
+          </li>
+          <li onClick={() => scrollToSection("admissions-section")}>
+            {t.nav.admissions}
+          </li>
+          <li onClick={() => scrollToSection("certifications-section")}>
+            {t.nav.certifications}
+          </li>
+          <li onClick={() => scrollToSection("about-section")}>
+            {t.nav.aboutUs}
+          </li>
           <li className="flex items-center justify-between gap-4 pt-4 border-t border-gray-200 mt-2">
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-2 text-sm text-gray-600">

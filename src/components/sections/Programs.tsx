@@ -73,6 +73,7 @@ export default function Programs() {
 
   return (
     <section
+      id="programs-section"
       className="py-10 px-4 bg-pink-50/70"
       aria-labelledby="programs-heading"
     >
