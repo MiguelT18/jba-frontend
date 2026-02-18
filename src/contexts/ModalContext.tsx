@@ -18,36 +18,40 @@ const ModalContext = createContext<ModalContextType | null>(null);
 export default function ModalProvider({ children }: { children: ReactNode }) {
   const [modal, setModal] = useState<ReactNode>(null);
 
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   const show = (node: ReactNode) => setModal(node);
   const hide = () => setModal(null);
-
-  // abrir dialog cuando hay modal
-  useEffect(() => {
-    if (modal) dialogRef.current?.showModal();
-  }, [modal]);
 
   // Bloquear el scroll
   useEffect(() => {
     document.body.style.overflow = modal ? "hidden" : "";
   }, [modal]);
 
+  // ESC handler
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") hide();
+    };
+    if (modal) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [modal]);
+
   return (
     <ModalContext.Provider value={{ show, hide }}>
       {children}
+
       {modal &&
         createPortal(
-          <dialog
-            ref={dialogRef}
-            className="w-[90%] max-w-xl m-auto backdrop:bg-black/30 backdrop:backdrop-blur-xs bg-transparent p-0 border-none"
-            onCancel={hide} // ESC o backdrop nativo
+          <div
+            ref={overlayRef}
+            className="p-5 fixed inset-0 bg-black/50 backdrop-blur-sm z-9999 flex items-start justify-center overflow-y-auto"
             onClick={(e) => {
-              if (e.target === dialogRef.current) hide(); // click fuera
+              if (e.target === overlayRef.current) hide(); // click afuera
             }}
           >
             {modal}
-          </dialog>,
+          </div>,
           document.body,
         )}
     </ModalContext.Provider>

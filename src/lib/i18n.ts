@@ -194,6 +194,23 @@ export const translations = {
       readySubtitle: 'Start your application today and join the Jolimia Beauty Academy community',
       applyButton: 'Apply for Admission',
     },
+    modal: {
+      header: {
+        title: "Request information",
+        description: "Complete the form and we will contact you"
+      },
+      form: {
+        labels: {
+          name: "Name",
+          lastName: "LastName",
+          phone: "Phone number",
+          email: "Email",
+          program: "Program of interest"
+        },
+        selectPlaceholder: "Program of interest",
+        buttonText: "Send form"
+      }
+    },
     footer: {
       tagline: 'Transforming lives through excellence in professional beauty education.',
       rights: '© 2024 Jolimia Beauty Academy. All rights reserved.',
@@ -390,6 +407,23 @@ export const translations = {
       readyTitle: '¿Listo para comenzar?',
       readySubtitle: 'Inicia tu solicitud hoy y sé parte de la comunidad Jolimia Beauty Academy',
       applyButton: 'Solicitar Admisión',
+    },
+    modal: {
+      header: {
+        title: "Solicitar información",
+        description: "Completa el formulario y nos pondremos en contacto contigo"
+      },
+      form: {
+        labels: {
+          name: "Nombre",
+          lastName: "Apellidos",
+          phone: "Número de teléfono",
+          email: "Correo electŕonico",
+          program: "Programa de interés"
+        },
+        selectPlaceholder: "Programa de interés",
+        buttonText: "Enviar Solicitud"
+      }
     },
     footer: {
       tagline: 'Transformando vidas a través de la excelencia en educación de belleza profesional.',
