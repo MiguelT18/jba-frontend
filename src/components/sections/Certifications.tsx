@@ -1,4 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useModal } from "@/contexts/ModalContext";
+import ModalForm from "../ui/ModalForm";
 
 const certKeys = ["extensions", "advanced", "lifting", "makeup"] as const;
 const levelMap = {
@@ -33,6 +35,8 @@ const StarIcon = () => (
 
 export default function Certifications() {
   const { t } = useLanguage();
+
+  const { show } = useModal();
 
   const getLevelClass = (level: string) => {
     if (level === "Beginner" || level === "Principiante")
@@ -78,7 +82,8 @@ export default function Certifications() {
 
               <button
                 type="button"
-                className="border-2 border-rose-500 text-rose-500 tracking-wider font-bold py-3 mt-5 rounded-lg"
+                onClick={() => show(<ModalForm />)}
+                className="border-2 border-rose-500 text-rose-500 tracking-wider font-bold py-3 mt-5 rounded-lg active:scale-95 transition-all"
               >
                 {t.certifications.learnMore}
               </button>

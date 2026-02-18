@@ -21,7 +21,10 @@ export default function Partners() {
       </p>
 
       <div className="carousel-container mt-8 overflow-hidden">
-        <ul className="carousel-track flex gap-8 w-max">
+        <ul
+          className="carousel-track flex gap-8 w-max"
+          style={{ animation: "scroll 20s linear infinite" }}
+        >
           {collaborators.map((collab) => (
             <li key={collab.id} className="carousel-item shrink-0 list-none">
               <img

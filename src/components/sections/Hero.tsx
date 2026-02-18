@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useModal } from "@/contexts/ModalContext";
+import ModalForm from "../ui/ModalForm";
 
 export interface CarouselOptions {
   /** Habilita el avance automático de slides */
@@ -15,11 +17,6 @@ const DEFAULT_CAROUSEL_OPTIONS: CarouselOptions = {
   autoplayIntervalMs: 5000,
   pauseAutoplayOnInteraction: true,
 };
-
-interface Programs {
-  id: string;
-  image: string;
-}
 
 const ChevronLeft = () => (
   <svg
@@ -48,6 +45,20 @@ const ChevronRight = () => (
     className="size-6"
   >
     <path d="m9 18 6-6-6-6" />
+  </svg>
+);
+
+const RegisterUser = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    viewBox="0 0 24 24"
+  >
+    <path
+      fill="currentColor"
+      d="M15 4a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4m0 1.9a2.1 2.1 0 1 1 0 4.2A2.1 2.1 0 0 1 12.9 8A2.1 2.1 0 0 1 15 5.9M4 7v3H1v2h3v3h2v-3h3v-2H6V7zm11 6c-2.67 0-8 1.33-8 4v3h16v-3c0-2.67-5.33-4-8-4m0 1.9c2.97 0 6.1 1.46 6.1 2.1v1.1H8.9V17c0-.64 3.1-2.1 6.1-2.1"
+    ></path>
   </svg>
 );
 
@@ -80,6 +91,8 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
     ...DEFAULT_CAROUSEL_OPTIONS,
     ...optionsProp,
   };
+
+  const { show } = useModal();
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
@@ -228,7 +241,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
   }, []);
 
   return (
-    <main ref={mainRef} className="relative h-[90dvh]">
+    <section ref={mainRef} className="relative h-[90dvh]">
       <div
         ref={carouselRef}
         className="flex h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide scroll-smooth touch-scroll-x"
@@ -271,18 +284,12 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 ⌛️ {program.duration}
               </span>
 
-              <button className="bg-linear-to-tl from-rose-500 to-pink-500 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-rose-500/70 transition-colors flex items-center gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M15 4a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4m0 1.9a2.1 2.1 0 1 1 0 4.2A2.1 2.1 0 0 1 12.9 8A2.1 2.1 0 0 1 15 5.9M4 7v3H1v2h3v3h2v-3h3v-2H6V7zm11 6c-2.67 0-8 1.33-8 4v3h16v-3c0-2.67-5.33-4-8-4m0 1.9c2.97 0 6.1 1.46 6.1 2.1v1.1H8.9V17c0-.64 3.1-2.1 6.1-2.1"
-                  ></path>
-                </svg>
+              <button
+                type="button"
+                onClick={() => show(<ModalForm />)}
+                className="bg-linear-to-tl from-rose-500 to-pink-500 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-rose-500/70 active:scale-95 transition-all flex items-center gap-2"
+              >
+                <RegisterUser />
                 {t.hero.register}
               </button>
             </div>
@@ -331,6 +338,6 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
           />
         ))}
       </div>
-    </main>
+    </section>
   );
 }

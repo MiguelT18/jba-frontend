@@ -1,4 +1,7 @@
+// Context Providers
 import LanguageProvider from "@/contexts/LanguageContext.tsx";
+import ModalProvider from "@/contexts/ModalContext";
+
 import Navbar from "@/components/ui/Navbar.tsx";
 import Hero from "@/components/sections/Hero.tsx";
 import Introduction from "@/components/sections/Introduction.tsx";
@@ -13,26 +16,20 @@ import Footer from "@/components/sections/Footer.tsx";
 export default function App() {
   return (
     <LanguageProvider>
-      <Navbar />
-      <main>
-        <section id="home">
+      <ModalProvider>
+        <Navbar />
+        <main>
           <Hero carouselOptions={{ pauseAutoplayOnInteraction: false }} />
-        </section>
-        <section id="courses">
           <Introduction />
-        </section>
-        <Accreditation />
-        <section id="about">
+          <Accreditation />
           <About />
-        </section>
-        <Partners />
-        <Programs />
-        <Certifications />
-        <section id="contact">
+          <Partners />
+          <Programs />
+          <Certifications />
           <Admissions />
-        </section>
-        <Footer />
-      </main>
+          <Footer />
+        </main>
+      </ModalProvider>
     </LanguageProvider>
   );
 }

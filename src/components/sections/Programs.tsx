@@ -1,4 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRef } from "react";
+import ModalForm from "../ui/ModalForm";
+import { useModal } from "@/contexts/ModalContext";
 
 const programIds = [
   "cosmetologia",
@@ -65,6 +68,8 @@ const noteKeys = [
 
 export default function Programs() {
   const { t } = useLanguage();
+
+  const { show } = useModal();
 
   return (
     <section
@@ -134,7 +139,8 @@ export default function Programs() {
               </ul>
               <button
                 type="button"
-                className="bg-linear-to-tl from-rose-500 to-pink-500 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wider flex items-center justify-center gap-2"
+                onClick={() => show(<ModalForm />)}
+                className="bg-linear-to-tl from-rose-500 to-pink-500 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95"
               >
                 <RegisterIcon />
                 {t.programs.register}

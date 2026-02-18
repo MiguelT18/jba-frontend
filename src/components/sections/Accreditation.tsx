@@ -1,4 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useModal } from "@/contexts/ModalContext";
+import ModalForm from "../ui/ModalForm";
 
 const FileCheckIcon = () => (
   <svg
@@ -42,6 +44,8 @@ const itemKeys = ["recognition", "standards", "preparation"] as const;
 export default function Accreditation() {
   const { t } = useLanguage();
 
+  const { show } = useModal();
+
   return (
     <section className="max-md:px-4 container mx-auto py-10">
       <article className="bg-linear-to-r from-rose-50 to-pink-50 rounded-4xl p-6">
@@ -83,7 +87,11 @@ export default function Accreditation() {
           </div>
         </div>
 
-        <button className="w-full bg-linear-to-tl from-primary to-pink-500 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 transition-colors">
+        <button
+          type="button"
+          onClick={() => show(<ModalForm />)}
+          className="w-full bg-linear-to-tl from-primary to-pink-500 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 active:scale-95 transition-all"
+        >
           {t.accreditation.register}
         </button>
       </article>

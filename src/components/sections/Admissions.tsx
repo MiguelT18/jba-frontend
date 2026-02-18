@@ -1,4 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useModal } from "@/contexts/ModalContext";
+import ModalForm from "../ui/ModalForm";
 
 const FileTextIcon = () => (
   <svg
@@ -36,6 +38,8 @@ const stepKeys = [
 
 export default function Admissions() {
   const { t } = useLanguage();
+
+  const { show } = useModal();
 
   return (
     <section className="py-10 px-5 bg-pink-50/70">
@@ -115,7 +119,8 @@ export default function Admissions() {
           </p>
           <button
             type="button"
-            className="bg-white text-rose-600 hover:bg-gray-100 py-3 w-full mt-2 rounded-lg font-bold text-md transition-all duration-300 transform hover:scale-105 shadow-lg"
+            onClick={() => show(<ModalForm />)}
+            className="bg-white text-rose-600 hover:bg-gray-100 py-3 w-full mt-2 rounded-lg font-bold text-md transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
           >
             {t.admissions.applyButton}
           </button>

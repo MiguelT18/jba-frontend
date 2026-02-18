@@ -1,5 +1,4 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import type { Locale } from "@/lib/i18n";
 
 const LicenseIcon = () => (
   <svg
