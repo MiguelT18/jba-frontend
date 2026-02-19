@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const MenuIcon = () => (
   <svg width={32} height={32} viewBox="0 0 24 24">
@@ -47,6 +48,7 @@ const DarkIcon = () => (
 
 export default function Navbar() {
   const { t, locale, setLocale } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
@@ -138,6 +140,7 @@ export default function Navbar() {
             </div>
 
             <button
+              onClick={toggleTheme}
               type="button"
               className="p-2 rounded-lg text-gray-600 bg-gray-200"
             >

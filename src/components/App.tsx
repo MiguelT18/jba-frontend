@@ -12,23 +12,26 @@ import Programs from "@/components/sections/Programs.tsx";
 import Certifications from "@/components/sections/Certifications.tsx";
 import Admissions from "@/components/sections/Admissions.tsx";
 import Footer from "@/components/sections/Footer.tsx";
+import ThemeProvider from "@/contexts/ThemeContext";
 
 export default function App() {
   return (
     <LanguageProvider>
       <ModalProvider>
-        <Navbar />
-        <main>
-          <Hero carouselOptions={{ pauseAutoplayOnInteraction: false }} />
-          <Introduction />
-          <Accreditation />
-          <About />
-          <Partners />
-          <Programs />
-          <Certifications />
-          <Admissions />
-          <Footer />
-        </main>
+        <ThemeProvider>
+          <Navbar />
+          <main>
+            <Hero carouselOptions={{ pauseAutoplayOnInteraction: false }} />
+            <Introduction />
+            <Accreditation />
+            <About />
+            <Partners />
+            <Programs />
+            <Certifications />
+            <Admissions />
+            <Footer />
+          </main>
+        </ThemeProvider>
       </ModalProvider>
     </LanguageProvider>
   );
