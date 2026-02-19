@@ -286,6 +286,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
 
               <button
                 type="button"
+                /* TODO: Pass through props the value of the select input */
                 onClick={() => show(<ModalForm />)}
                 className="bg-linear-to-tl from-rose-500 to-pink-500 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-rose-500/70 active:scale-95 transition-all flex items-center gap-2"
               >
