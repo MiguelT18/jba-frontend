@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Use public path for image - Astro processes images differently
-const aboutUsImage = "/src/images/about-us.webp";
+const aboutUsImage = "/images/about-us.webp";
 
 export default function About() {
   const { t } = useLanguage();
