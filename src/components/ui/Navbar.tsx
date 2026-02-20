@@ -98,13 +98,13 @@ export default function Navbar() {
         {/* LOGOS SSR SAFE */}
         <div>
           <img
-            src="/src/images/light-logo-removebg.webp"
+            src="/images/light-logo-removebg.webp"
             alt="Jolimia Beauty Academy official logo"
             className="w-36 max-md:w-[36%] dark:hidden"
             loading="eager"
           />
           <img
-            src="/src/images/dark-logo-removebg.webp"
+            src="/images/dark-logo-removebg.webp"
             alt="Jolimia Beauty Academy official logo"
             className="w-36 max-md:w-[36%] hidden dark:block"
             loading="eager"

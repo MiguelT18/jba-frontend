@@ -6,7 +6,7 @@ const collaborators = [
   { id: 3, name: "Estética Moderna" },
   { id: 4, name: "Cabello & Estilo" },
 ];
-const logoUrl = "/src/images/collaborator-logo.webp";
+const logoUrl = "/images/collaborator-logo.webp";
 
 export default function Partners() {
   const { t } = useLanguage();
