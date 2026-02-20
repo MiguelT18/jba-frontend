@@ -7,7 +7,7 @@
   --color-primary: #f5405e;
 
   --color-fg-default: #4b5563;
-  --color-fg-default-light: #dcdcdc;
+  --color-fg-default-light: #a6a6a6;
 
   /* Tamaños de texto: clamp(min, preferred, max) */
   --text-xs: clamp(0.9rem, 0.875rem + 0.15vw, 0.95rem);

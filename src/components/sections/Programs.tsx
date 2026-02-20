@@ -74,7 +74,7 @@ export default function Programs() {
   return (
     <section
       id="programs-section"
-      className="py-10 px-4 bg-pink-50/70"
+      className="py-10 px-4 bg-pink-50/70 dark:bg-pink-950/20"
       aria-labelledby="programs-heading"
     >
       <header className="text-center mb-1">
@@ -84,7 +84,7 @@ export default function Programs() {
         >
           {t.programs.title}
         </h2>
-        <p className="inline-block w-full text-md text-fg-default text-balance mt-1 leading-relaxed">
+        <p className="inline-block w-full text-md text-fg-default dark:text-fg-default-light text-balance mt-1 leading-relaxed">
           {t.programs.subtitle}
         </p>
       </header>
@@ -124,7 +124,7 @@ export default function Programs() {
               <span className="inline-block w-full text-sm text-pink-300 bg-pink-600/30 p-4 backdrop-blur-sm rounded-lg mb-2 font-semibold">
                 {t.programs[id].license}
               </span>
-              <p className="inline-block w-full text-sm text-fg-default-light leading-relaxed mt-4">
+              <p className="inline-block w-full text-sm text-white/70 leading-relaxed mt-4">
                 {t.programs[id].description}
               </p>
 
@@ -133,7 +133,7 @@ export default function Programs() {
               </span>
               <ul className="mt-2 space-y-2">
                 {t.programs[id].includes.map((item) => (
-                  <li key={item} className="text-sm text-fg-default-light">
+                  <li key={item} className="text-sm text-white/70">
                     👉 {item}
                   </li>
                 ))}
@@ -141,7 +141,7 @@ export default function Programs() {
               <button
                 type="button"
                 onClick={() => show(<ModalForm />)}
-                className="bg-linear-to-tl from-rose-500 to-pink-500 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95"
+                className="bg-linear-to-tl from-rose-500 to-pink-500 dark:from-pink-600 dark:to-rose-700 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95"
               >
                 <RegisterIcon />
                 {t.programs.register}
@@ -153,11 +153,14 @@ export default function Programs() {
         ))}
       </div>
 
-      <div className="mt-10 bg-linear-to-r from-rose-50 to-pink-50 rounded-2xl p-5 border border-rose-200">
+      <div className="mt-10 bg-linear-to-r from-rose-50 dark:from-rose-950/30 to-pink-50 dark:to-pink-950/30 rounded-2xl p-5 border border-rose-200 dark:border-rose-900">
         <h2 className="mb-4 text-xl font-bold">{t.programs.importantInfo}</h2>
         <ul className="w-full flex flex-col gap-4">
           {noteKeys.map((key) => (
-            <li key={key} className="text-fg-default text-sm leading-relaxed">
+            <li
+              key={key}
+              className="text-fg-default dark:text-fg-default-light text-sm leading-relaxed"
+            >
               <span className="text-rose-600 font-bold">
                 {t.programs.notes[key].title}
               </span>{" "}

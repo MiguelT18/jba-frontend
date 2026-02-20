@@ -63,15 +63,19 @@ export default function ModalForm() {
   };
 
   return (
-    <article className=" bg-white w-full rounded-xl shadow-xl">
-      <header className="bg-linear-to-r from-rose-500 to-pink-500 p-5 rounded-t-[inherit] space-y-3">
+    <article className=" bg-white dark:bg-zinc-950 w-full md:w-[60%] rounded-xl shadow-xl">
+      <header className="bg-linear-to-r from-rose-500 to-pink-500 dark:from-rose-700 dark:to-pink-700 p-5 rounded-t-[inherit] space-y-3">
         <div className="flex items-center justify-between text-white">
           <h2 className="text-lg font-bold">{t.modal.header.title}</h2>
-          <button type="button" onClick={hide}>
+          <button
+            type="button"
+            onClick={hide}
+            className="cursor-pointer p-2 rounded-md hover:bg-black/30 transition-all"
+          >
             <CloseIcon />
           </button>
         </div>
-        <p className="inline-block w-full text-sm text-fg-default-light">
+        <p className="inline-block w-full text-sm text-white/70">
           {t.modal.header.description}
         </p>
       </header>
@@ -92,7 +96,7 @@ export default function ModalForm() {
               value={form.name}
               onChange={handleChange}
               required
-              className="outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all duration-300"
+              className="dark:text-white text-sm outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 hover:border-rose-500 focus:border-transparent transition-all duration-300"
             />
           </div>
 
@@ -110,7 +114,7 @@ export default function ModalForm() {
               value={form.lastName}
               onChange={handleChange}
               required
-              className="outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all duration-300"
+              className="dark:text-white text-sm outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 hover:border-rose-500 focus:border-transparent transition-all duration-300"
             />
           </div>
         </div>
@@ -129,7 +133,7 @@ export default function ModalForm() {
             value={form.phone}
             onChange={handleChange}
             required
-            className="outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all duration-300"
+            className="dark:text-white text-sm outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 hover:border-rose-500 focus:border-transparent transition-all duration-300"
           />
         </div>
 
@@ -148,7 +152,7 @@ export default function ModalForm() {
             value={form.email}
             onChange={handleChange}
             required
-            className="outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all duration-300"
+            className="dark:text-white text-sm outline-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 hover:border-rose-500 focus:border-transparent transition-all duration-300"
           />
         </div>
 
@@ -166,7 +170,7 @@ export default function ModalForm() {
 
         <button
           type="submit"
-          className="w-full bg-linear-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white py-3 rounded-lg font-semibold text-md transition-all active:scale-95 shadow-lg"
+          className="w-full bg-linear-to-r from-rose-500 dark:from-rose-700 to-pink-500 dark:to-pink-700 hover:from-rose-600 hover:to-pink-600 text-white py-3 rounded-lg font-semibold text-md transition-all active:scale-95 shadow-lg mt-3 cursor-pointer"
         >
           {t.modal.form.buttonText}
         </button>

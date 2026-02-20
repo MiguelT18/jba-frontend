@@ -47,19 +47,22 @@ export default function Accreditation() {
   const { show } = useModal();
 
   return (
-    <section className="max-md:px-4 container mx-auto py-10">
-      <article className="bg-linear-to-r from-rose-50 to-pink-50 rounded-4xl p-6">
+    <section className="dark:bg-rose-950/10 max-md:px-4 container mx-auto py-10">
+      <article className="bg-linear-to-r from-rose-50 dark:from-rose-950/30 to-pink-50 dark:to-pink-950/30 rounded-4xl p-6">
         <h1 className="text-xl font-bold flex items-center gap-2">
           <FileCheckIcon />
           {t.accreditation.title}
         </h1>
-        <p className="text-sm text-fg-default leading-relaxed mt-4">
+        <p className="text-sm text-fg-default dark:text-fg-default-light leading-relaxed mt-4">
           {t.accreditation.description}
         </p>
 
         <ul className="my-4 space-y-2">
           {itemKeys.map((key) => (
-            <li key={key} className="text-fg-default flex items-center gap-2">
+            <li
+              key={key}
+              className="text-fg-default dark:text-fg-default-light flex items-center gap-2"
+            >
               <span className="inline-block">
                 <CheckIcon />
               </span>
@@ -71,17 +74,17 @@ export default function Accreditation() {
           ))}
         </ul>
 
-        <div className="bg-white shadow-black/30 shadow-md rounded-xl my-5 p-4">
-          <div className="text-white size-14 p-2 bg-linear-to-tl from-primary to-pink-500 rounded-full mx-auto flex items-center justify-center">
+        <div className="bg-white dark:bg-black/30 shadow-black/30 shadow-md rounded-xl my-5 p-4">
+          <div className="text-white size-14 p-2 bg-linear-to-tl from-rose-500 to-pink-500 dark:from-pink-600 dark:to-rose-700 rounded-full mx-auto flex items-center justify-center">
             <ShieldIcon />
           </div>
           <h1 className="mt-4 font-bold text-lg text-center">
             {t.accreditation.dporTitle}
           </h1>
-          <p className="text-fg-default leading-relaxed text-sm text-center">
+          <p className="text-fg-default dark:text-fg-default-light leading-relaxed text-sm text-center">
             {t.accreditation.dporSubtitle}
           </p>
-          <div className="text-xs text-center leading-relaxed text-gray-500 font-mono bg-gray-100 p-4 rounded mt-2">
+          <div className="text-xs text-center leading-relaxed text-gray-500 dark:text-gray-400 font-mono bg-gray-100 dark:bg-pink-950/15 p-4 rounded mt-2">
             {t.accreditation.certificationLabel} <br />{" "}
             {t.accreditation.certificationId}
           </div>
@@ -90,7 +93,7 @@ export default function Accreditation() {
         <button
           type="button"
           onClick={() => show(<ModalForm />)}
-          className="w-full bg-linear-to-tl from-primary to-pink-500 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 active:scale-95 transition-all"
+          className="w-full bg-linear-to-tl from-rose-500 to-pink-500 dark:from-pink-600 dark:to-rose-700 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-primary/70 active:scale-95 transition-all"
         >
           {t.accreditation.register}
         </button>

@@ -51,11 +51,11 @@ export function CustomSelect({ value, options, onChange, placeholder }: Props) {
       <button
         type="button"
         onClick={handleToggle}
-        className={`input flex justify-between items-center w-full px-4 py-2 rounded-lg transition-all ${open ? "border-2 border-rose-500" : "border border-gray-300"}`}
+        className={`input flex justify-between items-center w-full px-4 py-2 rounded-lg transition-all text-sm cursor-pointer hover:border-rose-500 group ${open ? "border-2 border-rose-500" : "border border-gray-300"}`}
       >
         <span>{selected?.label ?? placeholder ?? "Selecciona una opción"}</span>
         <span
-          className={`transition-all ${open ? "text-rose-500 rotate-180" : "text-gray-300"}`}
+          className={`transition-all group-hover:text-rose-500 ${open ? "text-rose-500 rotate-180" : "text-gray-300"}`}
         >
           <ArrowIcon />
         </span>

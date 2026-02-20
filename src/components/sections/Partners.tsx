@@ -12,11 +12,11 @@ export default function Partners() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-10 container">
+    <section className="dark:bg-rose-950/10 py-10 container">
       <h1 className="inline-block w-full text-2xl text-center text-balance font-bold px-4 mb-1">
         {t.collabs.title}
       </h1>
-      <p className="block text-md text-fg-default text-balance text-center px-4 leading-relaxed">
+      <p className="block text-md text-fg-default dark:text-fg-default-light text-balance text-center px-4 leading-relaxed">
         {t.collabs.subtitle}
       </p>
 

@@ -241,7 +241,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
   }, []);
 
   return (
-    <section ref={mainRef} className="relative h-[90dvh]">
+    <section ref={mainRef} className="relative h-[88dvh]">
       <div
         ref={carouselRef}
         className="flex h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide scroll-smooth touch-scroll-x"
@@ -288,7 +288,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 type="button"
                 /* TODO: Pass through props the value of the select input */
                 onClick={() => show(<ModalForm />)}
-                className="bg-linear-to-tl from-rose-500 to-pink-500 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-rose-500/70 active:scale-95 transition-all flex items-center gap-2"
+                className="bg-linear-to-tl from-rose-500 to-pink-500 dark:from-rose-600 dark:to-pink-700 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-rose-500/70 active:scale-95 transition-all flex items-center gap-2"
               >
                 <RegisterUser />
                 {t.hero.register}

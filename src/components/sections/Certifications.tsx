@@ -47,21 +47,34 @@ export default function Certifications() {
   };
 
   return (
-    <section id="certifications-section" className="py-10 px-4">
+    <section
+      id="certifications-section"
+      className="dark:bg-rose-950/10 py-10 px-4"
+    >
       <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
         {t.certifications.title}
       </h1>
-      <p className="inline-block w-full text-md text-fg-default text-balance text-center leading-relaxed">
+      <p className="inline-block w-full text-md text-fg-default dark:text-fg-default-light text-balance text-center leading-relaxed">
         {t.certifications.subtitle}
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-5 mb-10">
+      <div
+        style={{ alignItems: "baseline" }}
+        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-5 mb-10"
+      >
         {certKeys.map((key) => {
           const cert = t.certifications.items[key];
           return (
             <article
               key={key}
-              className="bg-linear-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-5 hover:shadow-lg transition-all duration-300 hover:border-rose-200 flex flex-col"
+              className="
+                bg-linear-to-br from-gray-50 to-white
+                dark:from-zinc-900 dark:to-zinc-900
+                border border-gray-200 dark:border-zinc-800
+                rounded-xl p-5 hover:shadow-lg transition-all duration-300
+                hover:border-rose-200 dark:hover:border-pink-700
+                flex flex-col
+              "
             >
               <div className="flex items-center gap-2 mb-4">
                 <AwardIcon />
@@ -75,7 +88,7 @@ export default function Certifications() {
                 <h3 className="inline-block w-full text-lg font-bold">
                   {cert.title}
                 </h3>
-                <p className="inline-block w-full text-sm text-fg-default text-start leading-relaxed">
+                <p className="inline-block w-full text-sm text-fg-default dark:text-fg-default-light text-start leading-relaxed">
                   {cert.description}
                 </p>
               </div>
@@ -92,14 +105,14 @@ export default function Certifications() {
         })}
       </div>
 
-      <div className="bg-linear-to-r from-rose-500 to-pink-500 rounded-2xl p-8 lg:p-12 text-white">
+      <div className="bg-linear-to-r from-rose-500 to-pink-500 dark:to-pink-600 dark:from-rose-700 rounded-2xl p-8 lg:p-12 text-white">
         <div className="flex items-center gap-2 text-white mb-4">
           <StarIcon />
           <h2 className="text-xl font-bold">
             {t.certifications.importantNote}
           </h2>
         </div>
-        <p className="text-sm text-fg-default-light font-medium leading-relaxed">
+        <p className="text-sm text-white/70 font-medium leading-relaxed">
           {t.certifications.importantNoteText}
         </p>
       </div>

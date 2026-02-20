@@ -29,19 +29,19 @@ const { title, description } = Astro.props;
       document.documentElement.classList.toggle("dark", theme === "dark");
     </script>
   </head>
-  <body>
+  <body class="bg-white dark:bg-black text-black dark:text-white">
     <slot />
 
     <button
       id="to-top-btn"
       type="button"
-      class="fixed bottom-4 right-4 z-30 p-3 rounded-full bg-black
+      class="fixed bottom-4 right-4 z-30 p-3 rounded-full bg-black dark:bg-white
            opacity-0 pointer-events-none
            transition-opacity duration-300 ease-out"
     >
       <Icon
         name="icomoon-free:arrow-down"
-        class="size-6 text-white rotate-180"
+        class="size-6 text-white dark:text-black rotate-180"
       />
     </button>
   </body>

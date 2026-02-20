@@ -81,50 +81,50 @@ export default function Introduction() {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-pink-50/70 py-10 container mx-auto">
-      <div className="flex flex-col gap-2 mb-4">
-        <h1 className="inline-block text-2xl font-bold text-center text-balance mb-1">
-          {t.intro.title}
-        </h1>
-        <p className="block text-md text-fg-default text-balance text-center">
-          {t.intro.subtitle}
-        </p>
-      </div>
+    <section className="bg-pink-50/70 dark:bg-pink-950/20 py-10">
+      <div className="container mx-auto max-w-[920px]">
+        <div className="flex flex-col gap-2 mb-5 md:mb-10">
+          <h1 className="inline-block text-2xl font-bold text-center text-balance mb-1">
+            {t.intro.title}
+          </h1>
+          <p className="inline-block w-full md:w-[70%] md:mx-auto text-md text-fg-default dark:text-fg-default-light text-balance text-center">
+            {t.intro.subtitle}
+          </p>
+        </div>
 
-      <div
-        className="px-4"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gridAutoRows: "1fr",
-          gap: "2rem",
-        }}
-      >
-        {cardKeys.map((key, i) => {
-          const IconComp = cardIcons[i];
-          return (
-            <article
-              key={key}
-              className="bg-white p-4 rounded-xl shadow-black/30 shadow-md"
-            >
-              <div>
-                <div className="size-12 flex items-center justify-center text-white bg-linear-to-br from-pink-500 to-primary p-2 rounded-lg">
+        <div
+          className="px-4"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            alignItems: "baseline",
+            gridAutoRows: "1fr",
+            gap: "2rem",
+          }}
+        >
+          {cardKeys.map((key, i) => {
+            const IconComp = cardIcons[i];
+            return (
+              <article
+                key={key}
+                className="bg-white dark:bg-black dark:bg-linear-to-br dark:from-pink-950/30 dark:to-rose-900/30 p-5 rounded-xl shadow-black/30 shadow-md"
+              >
+                <div className="size-12 flex items-center justify-center text-white bg-linear-to-br from-pink-500 dark:from-pink-600 dark:to-rose-700 to-rose-500 p-2 rounded-lg">
                   <IconComp />
                 </div>
 
-                {/* TODO: Agregar info de las cards */}
                 <div className="mt-5 space-y-1">
-                  <h2 className="inline-block w-full text-lg font-bold text-black">
+                  <h2 className="inline-block w-full text-lg font-bold text-black dark:text-white">
                     {t.intro.cards[key].title}
                   </h2>
-                  <p className="inline-block w-full text-sm font-sm text-fg-default leading-relaxed">
+                  <p className="inline-block w-full text-sm font-sm text-fg-default dark:text-fg-default-light leading-relaxed">
                     {t.intro.cards[key].description}
                   </p>
                 </div>
-              </div>
-            </article>
-          );
-        })}
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
