@@ -255,7 +255,7 @@ export default function Navbar() {
                 className={
                   locale === "en"
                     ? "bg-rose-500 text-white px-3 py-1 rounded"
-                    : "bg-gray-200 px-3 py-1 rounded"
+                    : "bg-gray-200 dark:bg-zinc-900 px-3 py-1 rounded"
                 }
               >
                 EN
@@ -265,7 +265,7 @@ export default function Navbar() {
                 className={
                   locale === "es"
                     ? "bg-rose-500 text-white px-3 py-1 rounded"
-                    : "bg-gray-200 px-3 py-1 rounded"
+                    : "bg-gray-200 dark:bg-zinc-900 px-3 py-1 rounded"
                 }
               >
                 ES
@@ -273,7 +273,10 @@ export default function Navbar() {
             </div>
 
             {/* Theme */}
-            <button onClick={toggleTheme} className="p-2 rounded bg-gray-200">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded bg-gray-200 dark:bg-zinc-900"
+            >
               {theme === "dark" ? <SunIcon /> : <MoonIcon />}
             </button>
           </li>
