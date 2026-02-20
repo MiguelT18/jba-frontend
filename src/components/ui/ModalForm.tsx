@@ -63,7 +63,10 @@ export default function ModalForm() {
   };
 
   return (
-    <article className=" bg-white dark:bg-zinc-950 w-full md:w-[60%] rounded-xl shadow-xl">
+    <article
+      className=" bg-linear-to-br from-gray-50 to-white
+                dark:from-zinc-950 dark:to-zinc-900 w-full md:w-[70%] lg:w-[50%] rounded-3xl shadow-xl"
+    >
       <header className="bg-linear-to-r from-rose-500 to-pink-500 dark:from-rose-700 dark:to-pink-700 p-5 rounded-t-[inherit] space-y-3">
         <div className="flex items-center justify-between text-white">
           <h2 className="text-lg font-bold">{t.modal.header.title}</h2>
@@ -75,12 +78,16 @@ export default function ModalForm() {
             <CloseIcon />
           </button>
         </div>
-        <p className="inline-block w-full text-sm text-white/70">
+        <p className="inline-block w-full text-md text-white">
           {t.modal.header.description}
         </p>
       </header>
 
-      <form method="POST" onSubmit={handleSubmit} className="p-6 space-y-4">
+      <form
+        method="POST"
+        onSubmit={handleSubmit}
+        className="px-6 pt-5 pb-8 space-y-4"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <label
@@ -170,7 +177,7 @@ export default function ModalForm() {
 
         <button
           type="submit"
-          className="w-full bg-linear-to-r from-rose-500 dark:from-rose-700 to-pink-500 dark:to-pink-700 hover:from-rose-600 hover:to-pink-600 text-white py-3 rounded-lg font-semibold text-md transition-all active:scale-95 shadow-lg mt-3 cursor-pointer"
+          className="w-full bg-linear-to-r from-rose-500 dark:from-rose-700 to-pink-500 dark:to-pink-700 hover:from-rose-600 hover:to-pink-600 text-white py-3 rounded-lg font-semibold text-md transition-all active:scale-95 shadow-lg mt-4 cursor-pointer"
         >
           {t.modal.form.buttonText}
         </button>

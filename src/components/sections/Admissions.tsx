@@ -46,7 +46,7 @@ export default function Admissions() {
       id="admissions-section"
       className="py-10 px-5 bg-pink-50/70 dark:bg-pink-950/20"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-[920px]">
         <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
           {t.admissions.title}
         </h1>
@@ -54,7 +54,7 @@ export default function Admissions() {
           {t.admissions.subtitle}
         </p>
 
-        <div className="mt-6">
+        <div className="mt-6 grid md:grid-cols-2 md:gap-5">
           <div>
             <div className="flex items-center gap-2">
               <FileTextIcon />
@@ -113,7 +113,7 @@ export default function Admissions() {
           </div>
         </div>
 
-        <article className="mt-10 bg-linear-to-r dark:from-pink-600 dark:to-rose-600 from-rose-500 to-pink-500 rounded-2xl p-5 text-center text-white">
+        <article className="max-w-xl mx-auto mt-10 bg-linear-to-r dark:from-pink-600 dark:to-rose-600 from-rose-500 to-pink-500 rounded-2xl p-5 text-center text-white">
           <h2 className="text-xl font-bold mb-4">{t.admissions.readyTitle}</h2>
           <p className="text-md leading-relaxed">
             {t.admissions.readySubtitle}
@@ -121,7 +121,7 @@ export default function Admissions() {
           <button
             type="button"
             onClick={() => show(<ModalForm />)}
-            className="bg-white text-rose-600  hover:bg-gray-100 py-3 w-full mt-2 rounded-lg font-bold text-md transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+            className="bg-white text-rose-600  hover:bg-gray-100 py-3 w-full mt-2 rounded-lg font-bold text-md transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
           >
             {t.admissions.applyButton}
           </button>

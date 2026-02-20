@@ -51,70 +51,72 @@ export default function Certifications() {
       id="certifications-section"
       className="dark:bg-rose-950/10 py-10 px-4"
     >
-      <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
-        {t.certifications.title}
-      </h1>
-      <p className="inline-block w-full text-md text-fg-default dark:text-fg-default-light text-balance text-center leading-relaxed">
-        {t.certifications.subtitle}
-      </p>
+      <div className="container mx-auto max-w-[920px]">
+        <h1 className="inline-block w-full text-2xl text-center text-balance font-bold mb-1">
+          {t.certifications.title}
+        </h1>
+        <p className="inline-block w-full text-md text-fg-default dark:text-fg-default-light text-balance text-center leading-relaxed">
+          {t.certifications.subtitle}
+        </p>
 
-      <div
-        style={{ alignItems: "baseline" }}
-        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-5 mb-10"
-      >
-        {certKeys.map((key) => {
-          const cert = t.certifications.items[key];
-          return (
-            <article
-              key={key}
-              className="
+        <div
+          style={{ alignItems: "baseline" }}
+          className="max-md:flex max-md:flex-wrap max-md:justify-center grid grid-cols-2 gap-5 w-full mt-5 mb-10"
+        >
+          {certKeys.map((key) => {
+            const cert = t.certifications.items[key];
+            return (
+              <article
+                key={key}
+                className="
                 bg-linear-to-br from-gray-50 to-white
-                dark:from-zinc-900 dark:to-zinc-900
+                dark:from-zinc-950 dark:to-zinc-900
                 border border-gray-200 dark:border-zinc-800
                 rounded-xl p-5 hover:shadow-lg transition-all duration-300
                 hover:border-rose-200 dark:hover:border-pink-700
                 flex flex-col
               "
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <AwardIcon />
-                <span
-                  className={`text-xs font-bold px-3 py-1 rounded-full ${getLevelClass(cert.level)}`}
-                >
-                  {cert.level}
-                </span>
-              </div>
-              <div className="space-y-2">
-                <h3 className="inline-block w-full text-lg font-bold">
-                  {cert.title}
-                </h3>
-                <p className="inline-block w-full text-sm text-fg-default dark:text-fg-default-light text-start leading-relaxed">
-                  {cert.description}
-                </p>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => show(<ModalForm />)}
-                className="border-2 border-rose-500 text-rose-500 tracking-wider font-bold py-3 mt-5 rounded-lg active:scale-95 transition-all"
               >
-                {t.certifications.learnMore}
-              </button>
-            </article>
-          );
-        })}
-      </div>
+                <div className="flex items-center gap-2 mb-4">
+                  <AwardIcon />
+                  <span
+                    className={`text-xs font-bold px-3 py-1 rounded-full ${getLevelClass(cert.level)}`}
+                  >
+                    {cert.level}
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="inline-block w-full text-lg font-bold">
+                    {cert.title}
+                  </h3>
+                  <p className="inline-block w-full text-sm text-fg-default dark:text-fg-default-light text-start leading-relaxed">
+                    {cert.description}
+                  </p>
+                </div>
 
-      <div className="bg-linear-to-r from-rose-500 to-pink-500 dark:to-pink-600 dark:from-rose-700 rounded-2xl p-8 lg:p-12 text-white">
-        <div className="flex items-center gap-2 text-white mb-4">
-          <StarIcon />
-          <h2 className="text-xl font-bold">
-            {t.certifications.importantNote}
-          </h2>
+                <button
+                  type="button"
+                  onClick={() => show(<ModalForm />)}
+                  className="border-2 border-rose-500 text-rose-500 tracking-wider font-bold py-3 mt-5 rounded-lg active:scale-95 transition-all cursor-pointer hover:opacity-70"
+                >
+                  {t.certifications.learnMore}
+                </button>
+              </article>
+            );
+          })}
         </div>
-        <p className="text-sm text-white/70 font-medium leading-relaxed">
-          {t.certifications.importantNoteText}
-        </p>
+
+        <div className="bg-linear-to-r from-rose-500 to-pink-500 dark:to-pink-600 dark:from-rose-700 rounded-2xl p-8 lg:p-12 text-white">
+          <div className="flex items-center gap-2 text-white mb-4">
+            <StarIcon />
+            <h2 className="text-xl font-bold">
+              {t.certifications.importantNote}
+            </h2>
+          </div>
+          <p className="text-sm font-medium leading-relaxed">
+            {t.certifications.importantNoteText}
+          </p>
+        </div>
       </div>
     </section>
   );

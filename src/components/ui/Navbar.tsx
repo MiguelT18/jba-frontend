@@ -61,59 +61,177 @@ export default function Navbar() {
   const { t, locale, setLocale } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
-
+  const [openMenu, setOpenMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [openLang, setOpenLang] = useState(false);
+
+  const langRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setOpenLang(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const scrollToSection = (id: string) => {
-    const $nodeTo = document.getElementById(id) as HTMLElement;
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setOpenMenu(false);
-    $nodeTo.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      const target = e.target as Node;
-
-      if (menuRef.current && !menuRef.current.contains(target)) {
+    const handler = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setOpenMenu(false);
       }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   return (
     <>
-      <nav
-        className={`sticky top-0 w-full min-h-[12dvh] bg-white/70 dark:bg-black/70 dark:backdrop-blur-md backdrop-blur-sm ${!openMenu && "shadow-black/30 shadow-md"} px-6 py-2 z-30 flex items-center justify-between`}
-      >
-        <img
-          src={`/src/images/${theme === "dark" ? "dark" : "light"}-logo-removebg.webp`}
-          alt="Jolimia Beauty Academy official logo"
-          loading="lazy"
-          decoding="async"
-          fetchPriority="high"
-          className="max-md:w-[36%] w-36"
-        />
+      <nav className="sticky top-0 w-full min-h-[12dvh] bg-white/70 dark:bg-black/70 backdrop-blur-sm px-6 py-2 z-30 flex items-center justify-between md:justify-evenly shadow-md">
+        {/* LOGOS SSR SAFE */}
+        <div>
+          <img
+            src="/src/images/light-logo-removebg.webp"
+            alt="Jolimia Beauty Academy official logo"
+            className="w-36 max-md:w-[36%] dark:hidden"
+            loading="eager"
+          />
+          <img
+            src="/src/images/dark-logo-removebg.webp"
+            alt="Jolimia Beauty Academy official logo"
+            className="w-36 max-md:w-[36%] hidden dark:block"
+            loading="eager"
+          />
+        </div>
 
         <button
           onClick={() => setOpenMenu(!openMenu)}
-          className="outline-0 border-0"
+          className="md:hidden border-0"
         >
           {openMenu ? <CloseIcon /> : <MenuIcon />}
         </button>
+
+        <div className="max-md:hidden flex gap-2 items-center">
+          <ul className="flex gap-2 text-sm">
+            <li
+              className="p-2 rounded-md hover:bg-rose-500/15 font-medium transition-all cursor-pointer"
+              onClick={() => scrollToSection("programs-section")}
+            >
+              {t.nav.programs}
+            </li>
+            <li
+              className="p-2 rounded-md hover:bg-rose-500/15 font-medium transition-all cursor-pointer"
+              onClick={() => scrollToSection("admissions-section")}
+            >
+              {t.nav.admissions}
+            </li>
+            <li
+              className="p-2 rounded-md hover:bg-rose-500/15 font-medium transition-all cursor-pointer"
+              onClick={() => scrollToSection("certifications-section")}
+            >
+              {t.nav.certifications}
+            </li>
+            <li
+              className="p-2 rounded-md hover:bg-rose-500/15 font-medium transition-all cursor-pointer"
+              onClick={() => scrollToSection("about-section")}
+            >
+              {t.nav.aboutUs}
+            </li>
+          </ul>
+
+          <div className="flex items-center gap-2">
+            <div ref={langRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setOpenLang((prev) => !prev)}
+                className="flex items-center gap-1.5 p-2 rounded bg-gray-200 dark:bg-zinc-900 hover:opacity-70 cursor-pointer transition-all"
+              >
+                <GlobeIcon />
+                <span className="text-xs font-semibold uppercase">
+                  {locale}
+                </span>
+                {/* Chevron */}
+                <svg
+                  width={12}
+                  height={12}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`transition-transform duration-200 ${openLang ? "rotate-180" : "rotate-0"}`}
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+
+              {/* Dropdown */}
+              <div
+                className={`absolute right-0 mt-2 w-36 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg overflow-hidden
+      transition-all duration-200 origin-top-right
+      ${openLang ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}
+              >
+                <ul className="py-1 text-sm">
+                  {(
+                    [
+                      { code: "en", label: "English", flag: "🇺🇸" },
+                      { code: "es", label: "Español", flag: "🇪🇸" },
+                    ] as { code: "en" | "es"; label: string; flag: string }[]
+                  ).map(({ code, label, flag }) => (
+                    <li key={code}>
+                      <button
+                        onClick={() => {
+                          setLocale(code);
+                          setOpenLang(false);
+                        }}
+                        className={`w-full flex items-center gap-2 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer
+              ${locale === code ? "text-rose-500 font-semibold" : "text-gray-700 dark:text-gray-300"}`}
+                      >
+                        <span>{flag}</span>
+                        <span>{label}</span>
+                        {locale === code && (
+                          <svg
+                            className="ml-auto"
+                            width={14}
+                            height={14}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                          >
+                            <path d="M20 6L9 17l-5-5" />
+                          </svg>
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded bg-gray-200 dark:bg-zinc-900 hover:opacity-70 cursor-pointer transition-all"
+            >
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            </button>
+          </div>
+        </div>
       </nav>
 
+      {/* MENU */}
       <div
         ref={menuRef}
-        className={`
-          fixed top-[12dvh] left-0 w-full bg-white/70 dark:bg-black/70 dark:backdrop-blur-md backdrop-blur-sm shadow-black/30 shadow-md z-20
-          transition-all duration-300 ease-in-out overflow-hidden
-          ${openMenu ? "max-h-96 translate-y-0 opacity-100" : "max-h-0 -translate-y-1/2 opacity-0"}
-        `}
+        className={`fixed top-[12dvh] left-0 w-full bg-white/70 dark:bg-black/70 backdrop-blur-md shadow-md z-20 transition-all duration-300 overflow-hidden
+        ${openMenu ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1/2"}`}
       >
         <ul className="flex flex-col gap-4 p-6 text-lg font-medium">
           <li onClick={() => scrollToSection("programs-section")}>
@@ -128,38 +246,34 @@ export default function Navbar() {
           <li onClick={() => scrollToSection("about-section")}>
             {t.nav.aboutUs}
           </li>
-          <li className="flex items-center justify-between gap-4 pt-4 border-t border-gray-200 mt-2">
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                <GlobeIcon /> {t.nav.language}
-              </span>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => {
-                    setLocale("en");
-                    setOpenMenu(false);
-                  }}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${locale === "en" ? "bg-rose-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => {
-                    setLocale("es");
-                    setOpenMenu(false);
-                  }}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${locale === "es" ? "bg-rose-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
-                >
-                  ES
-                </button>
-              </div>
+
+          <li className="flex items-center justify-between gap-4 pt-4 border-t mt-2">
+            {/* Language */}
+            <div className="flex gap-2">
+              <button
+                onClick={() => setLocale("en")}
+                className={
+                  locale === "en"
+                    ? "bg-rose-500 text-white px-3 py-1 rounded"
+                    : "bg-gray-200 px-3 py-1 rounded"
+                }
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLocale("es")}
+                className={
+                  locale === "es"
+                    ? "bg-rose-500 text-white px-3 py-1 rounded"
+                    : "bg-gray-200 px-3 py-1 rounded"
+                }
+              >
+                ES
+              </button>
             </div>
 
-            <button
-              onClick={toggleTheme}
-              type="button"
-              className="p-2 rounded-lg text-gray-600 bg-gray-200"
-            >
+            {/* Theme */}
+            <button onClick={toggleTheme} className="p-2 rounded bg-gray-200">
               {theme === "dark" ? <SunIcon /> : <MoonIcon />}
             </button>
           </li>

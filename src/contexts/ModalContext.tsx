@@ -45,7 +45,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
         createPortal(
           <div
             ref={overlayRef}
-            className="p-5 fixed inset-0 bg-black/50 backdrop-blur-sm z-9999 flex items-start justify-center overflow-y-auto"
+            className="p-5 fixed inset-0 bg-black/50 backdrop-blur-sm z-9999 flex items-center justify-center overflow-y-auto"
             onClick={(e) => {
               if (e.target === overlayRef.current) hide(); // click afuera
             }}

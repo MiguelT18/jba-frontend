@@ -48,8 +48,8 @@ export default function Footer() {
 
   return (
     <footer className="py-10 bg-gray-900 dark:bg-black">
-      <div className="px-4">
-        <h3 className="text-xl font-bold bg-linear-to-r from-rose-400 to-pink-400 dark:from-rose-500 dark:to-rose-500 bg-clip-text text-transparent mb-4">
+      <div className="px-4 md:max-w-[920px] md:container md:mx-auto">
+        <h3 className="text-xl font-bold bg-linear-to-r from-rose-400 to-pink-400 dark:from-rose-500 dark:to-rose-500 bg-clip-text text-transparent mb-1">
           {t.siteTitle}
         </h3>
         <p className="text-gray-400 mb-4 leading-relaxed">{t.footer.tagline}</p>

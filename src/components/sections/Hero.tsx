@@ -105,9 +105,12 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
   const programmaticScrollTimeoutRef = useRef<ReturnType<
     typeof setTimeout
   > | null>(null);
-  const [isHeroInView, setIsHeroInView] = useState(true);
+  const isDraggingRef = useRef(false);
+  const dragStartXRef = useRef(0);
+  const dragScrollLeftRef = useRef(0);
 
-  currentSlideRef.current = currentSlide;
+  const [isDragging, setIsDragging] = useState(false);
+  const [isHeroInView, setIsHeroInView] = useState(true);
 
   const goToSlide = useCallback((idx: number, smooth = true) => {
     const index = Math.max(0, Math.min(idx, programs.length - 1));
@@ -136,6 +139,60 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
       programmaticScrollTimeoutRef.current = null;
     }, delay);
   }, []);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    isDraggingRef.current = true;
+    dragStartXRef.current = e.pageX - carousel.offsetLeft;
+    dragScrollLeftRef.current = carousel.scrollLeft;
+    setIsDragging(true);
+
+    // 👇 Desactiva snap y smooth mientras arrastra
+    carousel.style.scrollSnapType = "none";
+    carousel.style.scrollBehavior = "auto";
+  };
+
+  const handleMouseUp = useCallback(() => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    setIsDragging(false);
+
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    // 👇 Reactiva smooth ANTES de hacer scroll para que se vea la animación
+    carousel.style.scrollBehavior = "smooth";
+
+    const slideWidth = carousel.clientWidth;
+    const nearestSlide = Math.round(carousel.scrollLeft / slideWidth);
+    goToSlide(nearestSlide);
+
+    // 👇 Reactiva snap después de que termine la animación
+    setTimeout(() => {
+      if (carousel) carousel.style.scrollSnapType = "x mandatory";
+    }, 600);
+
+    if (options.pauseAutoplayOnInteraction) setIsAutoplayPaused(true);
+  }, [goToSlide, options.pauseAutoplayOnInteraction]);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) return;
+    e.preventDefault();
+
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = x - dragStartXRef.current;
+    carousel.scrollLeft = dragScrollLeftRef.current - walk;
+  };
+
+  const handleMouseLeave = () => {
+    if (isDraggingRef.current) handleMouseUp();
+  };
+
+  currentSlideRef.current = currentSlide;
 
   const handleUserInteraction = useCallback(
     (fn: () => void) => {
@@ -244,8 +301,12 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
     <section ref={mainRef} className="relative h-[88dvh]">
       <div
         ref={carouselRef}
-        className="flex h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide scroll-smooth touch-scroll-x"
-        style={{ scrollBehavior: "smooth" }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        className={`flex h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide touch-scroll-x select-none
+    ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
       >
         {programs.map((program, idx) => (
           <article
@@ -263,6 +324,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 decoding="async"
                 fetchPriority={idx === 0 ? "high" : "low"}
                 className="size-full object-cover"
+                draggable={false}
               />
               <div
                 className="absolute inset-0 bg-linear-to-b from-transparent via-black/30 to-black/80"
@@ -270,7 +332,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
               />
             </div>
 
-            <div className="px-14 pb-24 pt-12 text-white">
+            <div className="px-14 md:px-24 lg:px-40 pb-24 pt-12 text-white">
               <div className="space-y-1 mb-2">
                 <h2 className="block text-white text-3xl font-bold tracking-tight md:text-4xl">
                   {program.title}
@@ -288,6 +350,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
                 type="button"
                 /* TODO: Pass through props the value of the select input */
                 onClick={() => show(<ModalForm />)}
+                onMouseDown={(e) => e.stopPropagation()}
                 className="bg-linear-to-tl from-rose-500 to-pink-500 dark:from-rose-600 dark:to-pink-700 text-white font-bold tracking-wider p-3 rounded-lg text-md cursor-pointer hover:bg-rose-500/70 active:scale-95 transition-all flex items-center gap-2"
               >
                 <RegisterUser />
@@ -305,7 +368,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
           onClick={goPrev}
           disabled={currentSlide === 0}
           aria-label={t.hero.previousSlide}
-          className="pointer-events-auto flex size-10 md:size-12 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white/35 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
+          className="pointer-events-auto flex size-10 md:size-12 items-center justify-center rounded-full bg-pink-600/20 text-white backdrop-blur-sm transition hover:bg-pink-600/35 focus:outline-none focus:ring-2 focus:ring-pink-600/50 disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
         >
           <ChevronLeft />
         </button>
@@ -316,7 +379,7 @@ export default function Hero({ carouselOptions: optionsProp }: HeroProps = {}) {
           onClick={goNext}
           disabled={currentSlide === programs.length - 1}
           aria-label={t.hero.nextSlide}
-          className="pointer-events-auto flex size-10 md:size-12 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white/35 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
+          className="pointer-events-auto flex size-10 md:size-12 items-center justify-center rounded-full bg-pink-600/20 text-white backdrop-blur-sm transition hover:bg-pink-600/35 focus:outline-none focus:ring-2 focus:ring-pink-600/50 disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
         >
           <ChevronRight />
         </button>

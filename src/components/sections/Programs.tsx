@@ -77,97 +77,99 @@ export default function Programs() {
       className="py-10 px-4 bg-pink-50/70 dark:bg-pink-950/20"
       aria-labelledby="programs-heading"
     >
-      <header className="text-center mb-1">
-        <h2
-          id="programs-heading"
-          className="inline-block w-full text-2xl text-balance font-bold"
-        >
-          {t.programs.title}
-        </h2>
-        <p className="inline-block w-full text-md text-fg-default dark:text-fg-default-light text-balance mt-1 leading-relaxed">
-          {t.programs.subtitle}
-        </p>
-      </header>
-
-      <div
-        className="mt-6 grid gap-8"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gridAutoRows: "1fr",
-        }}
-      >
-        {programIds.map((id, i) => (
-          <article
-            key={id}
-            style={{
-              backgroundImage: `url('${programImages[i]}')`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-            className="w-full h-auto shadow-black/30 shadow-md rounded-2xl px-4 pt-30 pb-5 relative flex justify-center items-end"
+      <div className="container mx-auto max-w-[920px]">
+        <header className="text-center mb-1">
+          <h2
+            id="programs-heading"
+            className="inline-block w-full text-2xl text-balance font-bold"
           >
-            <span className="absolute top-4 right-4 z-10 bg-rose-500 text-white text-xs font-bold px-4 py-2 rounded-full flex items-center shadow-lg gap-1">
-              <VerifyIcon />
-              DPOR
-            </span>
+            {t.programs.title}
+          </h2>
+          <p className="inline-block w-full text-md text-fg-default dark:text-fg-default-light text-balance mt-1 leading-relaxed">
+            {t.programs.subtitle}
+          </p>
+        </header>
 
-            <div className="relative z-10">
-              <h3 className="text-white text-xl font-bold">
-                {t.programs[id].title}
-              </h3>
-              <span className="w-fit flex items-center gap-1 mt-2 mb-4 text-white font-bold text-sm">
-                <ClockIcon />
-                {t.programs[id].duration}
-              </span>
-              <span className="inline-block w-full text-sm text-pink-300 bg-pink-600/30 p-4 backdrop-blur-sm rounded-lg mb-2 font-semibold">
-                {t.programs[id].license}
-              </span>
-              <p className="inline-block w-full text-sm text-white/70 leading-relaxed mt-4">
-                {t.programs[id].description}
-              </p>
-
-              <span className="inline-block w-full text-md font-bold text-white mt-4">
-                {t.programs.includes}:
-              </span>
-              <ul className="mt-2 space-y-2">
-                {t.programs[id].includes.map((item) => (
-                  <li key={item} className="text-sm text-white/70">
-                    👉 {item}
-                  </li>
-                ))}
-              </ul>
-              <button
-                type="button"
-                onClick={() => show(<ModalForm />)}
-                className="bg-linear-to-tl from-rose-500 to-pink-500 dark:from-pink-600 dark:to-rose-700 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95"
-              >
-                <RegisterIcon />
-                {t.programs.register}
-              </button>
-            </div>
-
-            <div className="bg-linear-to-t from-black/70 to-black/30 absolute top-0 left-0 size-full rounded-2xl z-0" />
-          </article>
-        ))}
-      </div>
-
-      <div className="mt-10 bg-linear-to-r from-rose-50 dark:from-rose-950/30 to-pink-50 dark:to-pink-950/30 rounded-2xl p-5 border border-rose-200 dark:border-rose-900">
-        <h2 className="mb-4 text-xl font-bold">{t.programs.importantInfo}</h2>
-        <ul className="w-full flex flex-col gap-4">
-          {noteKeys.map((key) => (
-            <li
-              key={key}
-              className="text-fg-default dark:text-fg-default-light text-sm leading-relaxed"
+        <div
+          className="mt-6 grid gap-8"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridAutoRows: "1fr",
+          }}
+        >
+          {programIds.map((id, i) => (
+            <article
+              key={id}
+              style={{
+                backgroundImage: `url('${programImages[i]}')`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+              className="w-full h-auto shadow-black/30 shadow-md rounded-2xl px-4 pt-30 pb-5 relative flex justify-center items-end"
             >
-              <span className="text-rose-600 font-bold">
-                {t.programs.notes[key].title}
-              </span>{" "}
-              {t.programs.notes[key].description}
-            </li>
+              <span className="absolute top-4 right-4 z-10 bg-rose-500 text-white text-xs font-bold px-4 py-2 rounded-full flex items-center shadow-lg gap-1">
+                <VerifyIcon />
+                DPOR
+              </span>
+
+              <div className="relative z-10">
+                <h3 className="text-white text-xl font-bold">
+                  {t.programs[id].title}
+                </h3>
+                <span className="w-fit flex items-center gap-1 mt-2 mb-4 text-white font-bold text-sm">
+                  <ClockIcon />
+                  {t.programs[id].duration}
+                </span>
+                <span className="inline-block w-full text-sm text-pink-300 bg-pink-600/30 p-4 backdrop-blur-sm rounded-lg mb-2 font-semibold">
+                  {t.programs[id].license}
+                </span>
+                <p className="inline-block w-full text-sm text-white/70 leading-relaxed mt-4">
+                  {t.programs[id].description}
+                </p>
+
+                <span className="inline-block w-full text-md font-bold text-white mt-4">
+                  {t.programs.includes}:
+                </span>
+                <ul className="mt-2 space-y-2">
+                  {t.programs[id].includes.map((item) => (
+                    <li key={item} className="text-sm text-white/70">
+                      👉 {item}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  onClick={() => show(<ModalForm />)}
+                  className="bg-linear-to-tl from-rose-500 to-pink-500 dark:from-pink-600 dark:to-rose-700 text-white py-3 w-full rounded-lg mt-4 font-bold tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
+                >
+                  <RegisterIcon />
+                  {t.programs.register}
+                </button>
+              </div>
+
+              <div className="bg-linear-to-t dark:from-black/80 dark:to-black/70 from-black/60 to-black/50 absolute top-0 left-0 size-full rounded-2xl z-0" />
+            </article>
           ))}
-        </ul>
+        </div>
+
+        <div className="mt-10 md:max-w-xl md:mx-auto bg-linear-to-r from-rose-50 dark:from-rose-950/30 to-pink-50 dark:to-pink-950/30 rounded-2xl p-5 border border-rose-200 dark:border-rose-900">
+          <h2 className="mb-4 text-xl font-bold">{t.programs.importantInfo}</h2>
+          <ul className="w-full flex flex-col gap-4">
+            {noteKeys.map((key) => (
+              <li
+                key={key}
+                className="text-fg-default dark:text-fg-default-light text-sm leading-relaxed"
+              >
+                <span className="text-rose-600 font-bold">
+                  {t.programs.notes[key].title}
+                </span>{" "}
+                {t.programs.notes[key].description}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

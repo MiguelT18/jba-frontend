@@ -38,20 +38,20 @@ export const translations = {
       subtitle: 'Discover why thousands of students choose Jolimia Beauty Academy for their professional future',
       cards: {
         certification: {
-          title: 'State License in Virginia',
-          description: 'Our DPOR-approved programs lead to a professional license valid in Virginia, opening real opportunities in the industry.',
+          title: "State License in Virginia",
+          description: "Professional license in Virginia with DPOR approval and real career opportunities.",
         },
         instructors: {
-          title: 'Licensed Instructors',
-          description: 'Training delivered by licensed professionals with real salon and spa experience.',
+          title: "Licensed Instructors",
+          description: "Training delivered by licensed professionals with real industry experience.",
         },
         flexible: {
-          title: 'In-Person Practical Education',
-          description: '100% in-person, supervised, hands-on classes using real professional tools.',
+          title: "Hands-On In-Person Education",
+          description: "In-person practical classes with supervised professional tools.",
         },
         environment: {
-          title: 'Professional and Safe Environment',
-          description: 'A modern space where you learn discipline, professional ethics, and customer service from day one.',
+          title: "Professional and Safe Environment",
+          description: "Modern space to learn discipline, professional ethics, and customer service.",
         },
       },
     },
@@ -254,19 +254,19 @@ export const translations = {
       cards: {
         certification: {
           title: 'Licencia Estatal en Virginia',
-          description: 'Nuestros programas avalados por DPOR conducen a licencia profesional válida en Virginia, abriendo oportunidades reales en la industria.',
+          description: 'Licencia profesional en Virginia con aval DPOR y oportunidades reales.',
         },
         instructors: {
           title: 'Instructores Licenciados',
-          description: 'Formación impartida por profesionales licenciados con experiencia real en salón y spa.',
+          description: 'Formación impartida por profesionales licenciados con experiencia real.',
         },
         flexible: {
           title: 'Educación Presencial y Práctica',
-          description: 'Clases 100% presenciales, supervisadas y prácticas con herramientas profesionales reales.',
+          description: 'Clases presenciales y prácticas con herramientas profesionales supervisadas.',
         },
         environment: {
           title: 'Ambiente Profesional y Seguro',
-          description: 'Espacio moderno donde aprendes disciplina, ética profesional y servicio al cliente desde el inicio.',
+          description: 'Espacio moderno para aprender disciplina, ética profesional y servicio al cliente.',
         },
       },
     },

@@ -65,7 +65,7 @@ export function CustomSelect({ value, options, onChange, placeholder }: Props) {
       {open && (
         <div
           ref={dropdownRef}
-          className={`absolute z-50 w-full bg-white rounded-lg shadow-black/30 shadow-lg overflow-hidden
+          className={`absolute z-50 w-full bg-white dark:bg-zinc-900 rounded-lg shadow-black/30 shadow-lg overflow-hidden
             ${dropUp ? "bottom-full mb-1" : "top-full mt-1"}`}
         >
           {options.map((opt) => (
@@ -75,7 +75,7 @@ export function CustomSelect({ value, options, onChange, placeholder }: Props) {
                 onChange(opt.value);
                 setOpen(false);
               }}
-              className="px-4 py-2 hover:bg-rose-100 cursor-pointer"
+              className="px-4 py-2 hover:bg-rose-100 dark:hover:bg-rose-500/30 cursor-pointer transition-all"
             >
               {opt.label}
             </div>

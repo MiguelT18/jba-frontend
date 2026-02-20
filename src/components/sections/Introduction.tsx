@@ -81,7 +81,7 @@ export default function Introduction() {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-pink-50/70 dark:bg-pink-950/20 py-10">
+    <section className="bg-pink-50/70 dark:bg-pink-950/20 py-10 px-5">
       <div className="container mx-auto max-w-[920px]">
         <div className="flex flex-col gap-2 mb-5 md:mb-10">
           <h1 className="inline-block text-2xl font-bold text-center text-balance mb-1">
@@ -92,16 +92,7 @@ export default function Introduction() {
           </p>
         </div>
 
-        <div
-          className="px-4"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            alignItems: "baseline",
-            gridAutoRows: "1fr",
-            gap: "2rem",
-          }}
-        >
+        <div className="max-md:flex max-md:flex-wrap max-md:justify-center grid grid-cols-2 gap-5 w-full">
           {cardKeys.map((key, i) => {
             const IconComp = cardIcons[i];
             return (
